@@ -23,12 +23,15 @@ export function series(props) {
 
     // mapping throught data set x, y data
     var mapping = data.map(d => {
+      if(!d._style) d._style = {}
+
       return {
         x: x(d),
         y: y(d[f.field]),
         color: f.color,
         name: f.name,
-        field: f.field
+        field: f.field,
+        _style: d._style
       }
     })
 

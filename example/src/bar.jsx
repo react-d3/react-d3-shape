@@ -36,6 +36,21 @@ var Ygrid = require('react-d3-core').Ygrid;
       console.log(d, i);
     }
 
+  generalChartData.map(function(d, i) {
+    if(i % 2 === 0) {
+      d._style = {
+        "color": "red",
+        "fill-opacity": .8
+      }
+    }else {
+      d._style = {
+        "color": "blue",
+        "fill-opacity": .2
+      }
+    }
+    return d;
+  })
+
   var Container = React.createClass({
     getInitialState: function() {
       return {

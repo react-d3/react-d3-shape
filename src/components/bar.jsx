@@ -56,7 +56,15 @@ export default class Bar extends Component {
       .attr("width", xScaleSet.rangeBand())
       .attr("y", (d) => { return d.y < 0 ? zeroBase: yScaleSet(d.y); })
       .attr("height", (d) => { return d.y < domain[0] ? 0: Math.abs(zeroBase - yScaleSet(d.y))})
-      .style("fill", dataset.color )
+      .style("fill", (d) => { return d._style.color? d._style.color: dataset.color })
+      .each(function(d) {
+        var dom = d3.select(this)
+        if(d._style) {
+          for(var key in d._style) {
+            dom.style(key, d._style[key]);
+          }
+        }
+      })
       .on("mouseover", onMouseOver)
       .on("mouseout", onMouseOut)
 
