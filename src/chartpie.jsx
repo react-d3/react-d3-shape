@@ -46,7 +46,10 @@ export default class ChartSvg extends Component {
     } = this.props;
 
     var children = React.Children.map(this.props.children, (el) => {
+      if(el)
         return React.cloneElement(el, this.props)
+      else
+        return null
     });
 
     var t = `translate(${margins.left}, ${margins.top})`;

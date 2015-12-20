@@ -6,6 +6,8 @@ var Chart = require('../../lib').Chart;
 var Bar = require('../../lib').Bar;
 var Xaxis = require('react-d3-core').Xaxis;
 var Yaxis = require('react-d3-core').Yaxis;
+var Xgrid = require('react-d3-core').Xgrid;
+var Ygrid = require('react-d3-core').Ygrid;
 
 (function() {
   var generalChartData = require('dsv?delimiter=\t!./data/letter.tsv')
@@ -60,6 +62,8 @@ var Yaxis = require('react-d3-core').Yaxis;
     },
     render: function() {
 
+      var xgrid, ygrid;
+
       return (
         <div>
           <button onClick={this.onClick}>toggle</button>
@@ -78,6 +82,8 @@ var Yaxis = require('react-d3-core').Yaxis;
               onMouseOver= {onMouseOver}
               onMouseOut= {onMouseOut}
             />
+            {xgrid}
+            {ygrid}
             <Xaxis/>
             <Yaxis/>
           </Chart>
