@@ -13,6 +13,7 @@ export {default as AreaStack} from './components/area_stack';
 export {default as Bar} from './components/bar';
 export {default as BarHorizonal} from './components/bar_horizonal';
 export {default as BarGroup} from './components/bar_group';
+export {default as BarGroupHorizonal} from './components/bar_group_horizonal';
 export {default as BarStack} from './components/bar_stack';
 export {default as BarStackHorizonal} from './components/bar_stack_horizonal';
 export {default as Pie} from './components/pie';
