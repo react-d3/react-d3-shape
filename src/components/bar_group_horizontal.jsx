@@ -9,7 +9,7 @@ import d3 from 'd3';
 import ReactFauxDOM from 'react-faux-dom';
 import {series} from '../utils/series';
 
-export default class BarGroupHorizonal extends Component {
+export default class BarGroupHorizontal extends Component {
   constructor (props) {
     super(props);
   }
@@ -17,7 +17,7 @@ export default class BarGroupHorizonal extends Component {
   static defaultProps = {
     onMouseOver: (d) => {},
     onMouseOut: (d) => {},
-    barClassName: 'react-d3-basic__bar_group_horizonal'
+    barClassName: 'react-d3-basic__bar_group_horizontal'
   }
 
   _mkBarGroup(dom) {

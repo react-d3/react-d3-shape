@@ -7,11 +7,11 @@ react-d3 basic shapes, shapes that we support:
 - Line
 - Area
 - AreaStack
-- BarGroupHorizonal
+- BarGroupHorizontal
 - BarGroup
-- BarStackHorizonal
+- BarStackHorizontal
 - BarStack
-- BarHorizonal
+- BarHorizontal
 - Bar
 - Pie
 - Scatter

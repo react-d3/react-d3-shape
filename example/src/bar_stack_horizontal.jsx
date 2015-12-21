@@ -3,7 +3,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Chart = require('../../lib').Chart;
-var BarGroupHorizonal = require('../../lib').BarGroupHorizonal;
+var BarStackHorizontal = require('../../lib').BarStackHorizontal;
 var Xaxis = require('react-d3-core').Xaxis;
 var Yaxis = require('react-d3-core').Yaxis;
 
@@ -21,10 +21,7 @@ var Yaxis = require('react-d3-core').Yaxis;
       },
       {
         field: '14 to 17 Years',
-        name: '14 to 17 Years',
-        style: {
-          "fill-opacity": .4
-        }
+        name: '14 to 17 Years'
       },
       {
         field: '18 to 24 Years',
@@ -32,7 +29,10 @@ var Yaxis = require('react-d3-core').Yaxis;
       },
       {
         field: '25 to 44 Years',
-        name: '25 to 44 Years'
+        name: '25 to 44 Years',
+        style: {
+          "fill-opacity": .4
+        }
       },
       {
         field: '45 to 64 Years',
@@ -47,8 +47,6 @@ var Yaxis = require('react-d3-core').Yaxis;
     y = function(d) {
       return d.State;
     },
-    yDomain = generalChartData.map(function(d) { return d.State; }),
-    yRangeRoundBands = {interval: [0, 840], padding: .1},
     yScale = 'ordinal',
     x = function(d) {
       return +d;
@@ -96,18 +94,18 @@ var Yaxis = require('react-d3-core').Yaxis;
         <div>
           <button onClick={this.onClick}>toggle</button>
           <Chart
-            horizonal= {true}
+            horizontal= {true}
+            stack= {true}
+            width= {this.state.width}
+            height= {this.state.height}
             data= {generalChartData}
             chartSeries = {this.state.series}
             y= {y}
-            yDomain= {yDomain}
             yScale= {yScale}
             x= {x}
             xTickFormat= {xTickFormat}
-            width= {this.state.width}
-            height= {this.state.height}
             >
-            <BarGroupHorizonal
+            <BarStackHorizontal
               chartSeries = {this.state.series}
             />
             <Xaxis/>
@@ -118,9 +116,8 @@ var Yaxis = require('react-d3-core').Yaxis;
     }
   })
 
-
   ReactDOM.render(
     <Container/>
-  , document.getElementById('data_bar_group')
+  , document.getElementById('data_bar_stack')
   )
 })()

@@ -35,7 +35,7 @@ export default class ChartSvg extends Component {
   render() {
 
     var {
-      horizonal,
+      horizontal,
       height,
       width,
       margins,
@@ -63,8 +63,8 @@ export default class ChartSvg extends Component {
     var yRange = yRange || [height - margins.top - margins.bottom, 0]
     var xRangeRoundBands = xRangeRoundBands || {interval: [0, width - margins.left - margins.right], padding: .1};
     var yRangeRoundBands = yRangeRoundBands || {interval: [0, height - margins.top - margins.bottom], padding: .1};
-    var xDomain = xDomain || xDomainCount(this.props, stack, horizonal);
-    var yDomain = yDomain || yDomainCount(this.props, stack, horizonal);
+    var xDomain = xDomain || xDomainCount(this.props, stack, horizontal);
+    var yDomain = yDomain || yDomainCount(this.props, stack, horizontal);
 
     var newXScale = {
       scale: xScale,

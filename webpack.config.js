@@ -9,17 +9,17 @@ var js_root = './example/src';
 var js_dist = path.join(__dirname, './example/dist/origin');
 
 module.exports = [{
-  name: 'chartes5Component',
+  name: 'shape',
   entry: {
     line: js_root + '/line.jsx',
     scatter: js_root + '/scatter.jsx',
     area_stack: js_root + '/area_stack.jsx',
     bar: js_root + '/bar.jsx',
-    bar_horizonal: js_root + '/bar_horizonal.jsx',
+    bar_horizontal: js_root + '/bar_horizontal.jsx',
     bar_group: js_root + '/bar_group.jsx',
-    bar_group_horizonal: js_root + '/bar_group_horizonal.jsx',
+    bar_group_horizontal: js_root + '/bar_group_horizontal.jsx',
     bar_stack: js_root + '/bar_stack.jsx',
-    bar_stack_horizonal: js_root + '/bar_stack_horizonal.jsx',
+    bar_stack_horizontal: js_root + '/bar_stack_horizontal.jsx',
     pie: js_root + '/pie.jsx',
     donut: js_root + '/donut.jsx'
   },

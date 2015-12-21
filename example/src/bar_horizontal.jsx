@@ -3,55 +3,52 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Chart = require('../../lib').Chart;
-var BarStackHorizonal = require('../../lib').BarStackHorizonal;
+var BarHorizontal = require('../../lib').BarHorizontal;
 var Xaxis = require('react-d3-core').Xaxis;
 var Yaxis = require('react-d3-core').Yaxis;
 
 (function() {
-  var generalChartData = require('dsv?delimiter=,!./data/age.csv')
+  var generalChartData = require('dsv?delimiter=\t!./data/letter.tsv')
 
   var chartSeries = [
       {
-        field: 'Under 5 Years',
-        name: 'Under 5 Years'
-      },
-      {
-        field: '5 to 13 Years',
-        name: '5 to 13 Years'
-      },
-      {
-        field: '14 to 17 Years',
-        name: '14 to 17 Years'
-      },
-      {
-        field: '18 to 24 Years',
-        name: '18 to 24 Years'
-      },
-      {
-        field: '25 to 44 Years',
-        name: '25 to 44 Years',
+        field: 'frequency',
+        name: 'Frequency',
         style: {
-          "fill-opacity": .4
+          'fill-opacity': .5
         }
-      },
-      {
-        field: '45 to 64 Years',
-        name: '45 to 64 Years'
-      },
-      {
-        field: '65 Years and Over',
-        name: '65 Years and Over'
-      },
-
+      }
     ],
     y = function(d) {
-      return d.State;
+      return d.letter;
     },
     yScale = 'ordinal',
     x = function(d) {
       return +d;
     },
-    xTickFormat = d3.format(".2s");
+    // xDomain = [0, .13],
+    xTicks = [10, "%"],
+    onMouseOver = function(d, i) {
+      console.log(d, i);
+    },
+    onMouseOut = function(d, i) {
+      console.log(d, i);
+    }
+
+  generalChartData.map(function(d, i) {
+    if(i % 2 === 0) {
+      d._style = {
+        "color": "red",
+        "fill-opacity": .8
+      }
+    }else {
+      d._style = {
+        "color": "blue",
+        "fill-opacity": .2
+      }
+    }
+    return d;
+  })
 
   var Container = React.createClass({
     getInitialState: function() {
@@ -67,22 +64,11 @@ var Yaxis = require('react-d3-core').Yaxis;
         height: this.state.width === 600? 600: 500,
         series: this.state.width === 600? [
             {
-              field: '5 to 13 Years',
-              name: '5 to 13 Years'
-            },
-            {
-              field: '14 to 17 Years',
-              name: '14 to 17 Years'
-            },
-            {
-              field: '18 to 24 Years',
-              name: '18 to 24 Years'
-            },
-            {
-              field: '25 to 44 Years',
-              name: '25 to 44 Years',
+              field: 'frequency',
+              name: 'Frequency',
               style: {
-                "fill-opacity": .4
+                'fill': 'red',
+                'fill-opacity': .8
               }
             }
           ]: chartSeries
@@ -94,8 +80,7 @@ var Yaxis = require('react-d3-core').Yaxis;
         <div>
           <button onClick={this.onClick}>toggle</button>
           <Chart
-            horizonal= {true}
-            stack= {true}
+            horizontal= {true}
             width= {this.state.width}
             height= {this.state.height}
             data= {generalChartData}
@@ -103,9 +88,9 @@ var Yaxis = require('react-d3-core').Yaxis;
             y= {y}
             yScale= {yScale}
             x= {x}
-            xTickFormat= {xTickFormat}
+            xTicks= {xTicks}
             >
-            <BarStackHorizonal
+            <BarHorizontal
               chartSeries = {this.state.series}
             />
             <Xaxis/>
@@ -118,6 +103,6 @@ var Yaxis = require('react-d3-core').Yaxis;
 
   ReactDOM.render(
     <Container/>
-  , document.getElementById('data_bar_stack')
+  , document.getElementById('data_bar')
   )
 })()
