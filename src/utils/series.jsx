@@ -2,7 +2,7 @@
 
 import d3 from 'd3';
 
-export function series(props) {
+export function series(props, horizonal) {
   var {
     data,
     chartSeries,
@@ -25,13 +25,24 @@ export function series(props) {
     var mapping = data.map(d => {
       if(!d._style) d._style = {}
 
-      return {
-        x: x(d),
-        y: y(d[f.field]),
-        color: f.color,
-        name: f.name,
-        field: f.field,
-        _style: d._style
+      if(!horizonal) {
+        return {
+          x: x(d),
+          y: y(d[f.field]),
+          color: f.color,
+          name: f.name,
+          field: f.field,
+          _style: d._style
+        }
+      }else {
+        return {
+          y: y(d),
+          x: x(d[f.field]),
+          color: f.color,
+          name: f.name,
+          field: f.field,
+          _style: d._style
+        }
       }
     })
 

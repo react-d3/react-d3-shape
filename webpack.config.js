@@ -15,6 +15,7 @@ module.exports = [{
     scatter: js_root + '/scatter.jsx',
     area_stack: js_root + '/area_stack.jsx',
     bar: js_root + '/bar.jsx',
+    bar_horizonal: js_root + '/bar_horizonal.jsx',
     bar_group: js_root + '/bar_group.jsx',
     bar_stack: js_root + '/bar_stack.jsx',
     pie: js_root + '/pie.jsx',
