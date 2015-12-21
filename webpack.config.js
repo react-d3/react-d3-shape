@@ -18,6 +18,7 @@ module.exports = [{
     bar_horizonal: js_root + '/bar_horizonal.jsx',
     bar_group: js_root + '/bar_group.jsx',
     bar_stack: js_root + '/bar_stack.jsx',
+    bar_stack_horizonal: js_root + '/bar_stack_horizonal.jsx',
     pie: js_root + '/pie.jsx',
     donut: js_root + '/donut.jsx'
   },

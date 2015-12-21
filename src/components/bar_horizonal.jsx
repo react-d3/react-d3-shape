@@ -18,7 +18,7 @@ export default class BarHorizonal extends Component {
     interpolate: null,
     onMouseOver: (d) => {},
     onMouseOut: (d) => {},
-    barClassName: 'react-d3-basic__bar'
+    barClassName: 'react-d3-basic__bar_horizonal'
   }
 
   _mkBar(dom) {

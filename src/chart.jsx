@@ -73,8 +73,6 @@ export default class ChartSvg extends Component {
       rangeRoundBands: xRangeRoundBands
     }
 
-    console.log(xDomain, xRange)
-
     var xScaleSet = scale(newXScale);
 
     var newYScale = {
