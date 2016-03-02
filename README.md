@@ -62,6 +62,8 @@ $ sudo npm i
 $ node devServer.js
 ```
 
+and open `localhost:5000/example`
+
 Build production `js`, `min.js` code
 
 ```

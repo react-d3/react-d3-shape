@@ -69,12 +69,6 @@ export default class Scatter extends Component {
                     }
                   }
                 )
-                
-
-              // ({
-              //   size: symbolSize * symbolSize,
-              //   type: D3Shape.symbolCross
-              // })()
 
               return (
                 <path
