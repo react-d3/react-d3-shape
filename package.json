@@ -1,6 +1,6 @@
 {
   "name": "react-d3-shape",
-  "version": "0.1.3",
+  "version": "0.2.2",
   "description": "react shape component",
   "main": "./lib/index.js",
   "directories": {
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run build && npm run prod",
-    "build": "rm -rf ./lib && babel -w --stage 0 src --out-dir lib",
+    "build": "rm -rf ./lib && ./node_modules/.bin/babel ./src --out-dir ./lib",
     "prod": "NODE_ENV=0 webpack --config webpack.prod.config.js && NODE_ENV=1 webpack --config webpack.prod.config.js"
   },
   "author": "ElixirDoc team",
