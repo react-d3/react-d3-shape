@@ -6,7 +6,6 @@ import {
 } from 'react';
 
 import d3 from 'd3';
-import ReactFauxDOM from 'react-faux-dom';
 import {series} from '../utils/series';
 
 export default class BarGroup extends Component {
@@ -49,41 +48,42 @@ export default class BarGroup extends Component {
       zeroBase = yScaleSet.range()[1];
     }
 
-    // make areas
-    var chart = d3.select(dom)
 
-    chart.selectAll('.bargroup')
-      .data(dataset)
-    .enter().append('g')
-      .attr("class", "bargroup")
-      .each(function(dt, i) {
-        var dom = d3.select(this)
-          .selectAll("rect")
-          .data(dt.data)
-        .enter().append("rect")
-          .attr("class", `${barClassName} bar`)
-          .attr("width", x1.rangeBand())
-          .attr("x", function(d) { return xScaleSet(d.x)? (xScaleSet(d.x) + x1.rangeBand() * i) : -10000})
-          .attr("y", function(d) { return d.y < 0 ? zeroBase: yScaleSet(d.y); })
-          .attr("height", function(d) { return d.y < domain[0] ? 0: Math.abs(zeroBase - yScaleSet(d.y)) })
-          .style("fill", function(d) { return dt.color; })
-          .on("mouseover", onMouseOver)
-          .on("mouseout", onMouseOut)
-
-        if(dt.style) {
-          for(var key in dt.style) {
-            dom.style(key, dt.style[key]);
-          }
-        }
+    return (
+      dataset.map((barGroup, i) => {
+        return (
+          <g className="bargroup">
+            {
+              barGroup.data.map((bar) => {
+                console.log(bar)
+                return (
+                  <rect
+                    className={`${barClassName} bar`}
+                    width={x1.rangeBand()}
+                    x={xScaleSet(bar.x)? (xScaleSet(bar.x) + x1.rangeBand() * i) : -10000}
+                    y={bar.y < 0 ? zeroBase: yScaleSet(bar.y)}
+                    height={bar.y < domain[0] ? 0: Math.abs(zeroBase - yScaleSet(bar.y))}
+                    fill={barGroup.color}
+                    onMouseOver={onMouseOver}
+                    onMouseOut={onMouseOut}
+                    style={barGroup.style}
+                  />
+                )
+              })
+            }
+          </g>
+        )
       })
-
-    return chart;
+    )
   }
 
   render() {
-    var barChart = ReactFauxDOM.createElement('g');
-    var bar = this._mkBarGroup(barChart);
+    var bar = this._mkBarGroup();
 
-    return bar.node().toReact();
+    return (
+      <g>
+        {bar}
+      </g>
+    )
   }
 }

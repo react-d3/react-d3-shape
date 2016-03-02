@@ -6,8 +6,7 @@ import {
   PropTypes,
 } from 'react';
 
-import d3 from 'd3';
-import ReactFauxDOM from 'react-faux-dom';
+import D3Shape from 'd3-shape'
 import CommonProps from '../commonProps';
 import {series} from '../utils/series';
 
@@ -16,39 +15,36 @@ export default class Area extends Component {
     super(props);
   }
 
-  static defaultProps = Object.assign(CommonProps, {
-    interpolate: null,
-    areaClassName: 'react-d3-basic__area'
-  })
+  static defaultProps = {
+    areaClassName: 'react-d3-basic__area',
+    ...CommonProps
+  }
 
-  _mkArea(dom) {
+  _mkArea() {
     const {
       areaClassName,
       areaOpacity
     } = this.props;
 
     var dataset = series(this.props);
-
-    // make area
-    var area = d3.select(dom);
     var that = this;
 
-    area.selectAll('.area')
-      .data(dataset)
-    .enter().append('path')
-      .attr("class", `${areaClassName} area`)
-      .style("fill", (d) => {return d.color})
-      .attr("d", (d) => {return that._setAxes(d.data)})
-      .each(function(d) {
-        var dom = d3.select(this);
-        if(d.style) {
-          for(var key in d.style) {
-            dom.style(key, d.style[key]);
-          }
+    return (
+      <g>
+        {
+          dataset.map((area) => {
+            return (
+              <path
+                className={`${areaClassName} area`}
+                fill={area.color}
+                d={that._setAxes(area.data)}
+                style={area.style}
+                />
+            )
+          })
         }
-      })
-
-    return area;
+      </g>
+    );
   }
 
   _setAxes (data) {
@@ -56,12 +52,10 @@ export default class Area extends Component {
       height,
       margins,
       xScaleSet,
-      yScaleSet,
-      interpolate
+      yScaleSet
     } = this.props;
 
-    var area = d3.svg.area()
-      .interpolate(interpolate)
+    var area = D3Shape.area()
       .x((d) => { return xScaleSet(d.x) })
       .y0((d) => {
         var domain = yScaleSet.domain();
@@ -80,9 +74,12 @@ export default class Area extends Component {
   }
 
   render() {
-    var areaPath = ReactFauxDOM.createElement('g');
-    var area = this._mkArea(areaPath);
+    var area = this._mkArea();
 
-    return area.node().toReact();
+    return (
+      <g>
+        {area}
+      </g>
+    )
   }
 }

@@ -19,14 +19,14 @@ var value = function(d) {
       "name": "less than 5",
       "color": "red",
       "style": {
-        "fill-opacity": .2
+        "fillOpacity": .2
       }
     },
     {
       "field": "5-13",
       "name": "5 to 13",
       style: {
-        "fill-opacity": .5
+        "fillOpacity": .5
       }
     },
     {
@@ -64,17 +64,23 @@ module.exports = React.createClass({
         "name": "less than 5",
         "color": "red",
         "style": {
-          "fill-opacity": .2
+          "fillOpacity": .2
         }
       },
       {
         "field": "5-13",
         "name": "5 to 13",
         style: {
-          "fill-opacity": .5
+          "fillOpacity": .5
         }
       }]: chartSeries
     })
+  },
+  onMouseOver: function(e) {
+    console.log(e)
+  },
+  onMouseOut: function(e) {
+    console.log(e)
   },
   render: function() {
 
@@ -91,6 +97,8 @@ module.exports = React.createClass({
           >
           <Pie
             chartSeries= {this.state.series}
+            onMouseOver= {this.onMouseOver}
+            onMouseOut= {this.onMouseOut}
           />
         </ChartPie>
       </div>

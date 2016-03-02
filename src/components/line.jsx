@@ -6,8 +6,7 @@ import {
   Component,
 } from 'react';
 
-import d3 from 'd3';
-import ReactFauxDOM from 'react-faux-dom';
+import D3Shape from 'd3-shape'
 import CommonProps from '../commonProps';
 import {series} from '../utils/series';
 
@@ -16,10 +15,11 @@ export default class Line extends Component {
     super(props);
   }
 
-  static defaultProps = Object.assign(CommonProps, {
+  static defaultProps = {
     interpolate: null,
-    lineClassName: 'react-d3-basic__line'
-  })
+    lineClassName: 'react-d3-basic__line',
+    ...CommonProps
+  }
 
   _mkLine(dom) {
     const {
@@ -27,39 +27,33 @@ export default class Line extends Component {
     } = this.props;
 
     var dataset = series(this.props);
-
-    // make line
-    var line = d3.select(dom);
     var that = this;
 
-    line.selectAll('.line')
-      .data(dataset)
-    .enter().append('path')
-      .style("stroke", (d) => {return d.color})
-      .style("fill", 'none')
-      .attr("class", `${lineClassName} line`)
-      .attr("d", (d) => {return that._setAxes(d.data)})
-      .each(function(d) {
-        var dom = d3.select(this)
-        if(d.style) {
-          for(var key in d.style) {
-            dom.style(key, d.style[key]);
-          }
+    return (
+      <g>
+        {
+          dataset.map((line) => {
+            return (
+              <path
+                stroke={line.color}
+                fill="none"
+                className={`${lineClassName} line`}
+                d={that._setAxes(line.data)}
+                style={line.style}/>
+            )
+          })
         }
-      })
-
-    return line;
+      </g>
+    )
   }
 
   _setAxes (data) {
     const {
       xScaleSet,
-      yScaleSet,
-      interpolate
+      yScaleSet
     } = this.props;
 
-    var line =  d3.svg.line()
-      .interpolate(interpolate)
+    var line =  D3Shape.line()
       .x((d) => { return xScaleSet(d.x) })
       .y((d) => { return yScaleSet(d.y) })
 
@@ -67,9 +61,12 @@ export default class Line extends Component {
   }
 
   render() {
-    var linePath = ReactFauxDOM.createElement('g');
-    var line = this._mkLine(linePath);
+    var line = this._mkLine();
 
-    return line.node().toReact();
+    return (
+      <g>
+        {line}
+      </g>
+    );
   }
 }

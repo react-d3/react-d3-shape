@@ -6,8 +6,7 @@ import {
   PropTypes,
 } from 'react';
 
-import d3 from 'd3';
-import ReactFauxDOM from 'react-faux-dom';
+import D3Shape from 'd3-shape'
 import {series} from '../utils/series';
 
 export default class Scatter extends Component {
@@ -21,7 +20,7 @@ export default class Scatter extends Component {
     scatterClassName: 'react-d3-basic__scatter'
   }
 
-  _mkScatter(dom, dataset) {
+  _mkScatter(dataset) {
     const {
       scatterClassName,
       defaultSymbol,
@@ -37,42 +36,70 @@ export default class Scatter extends Component {
       symbolSize = 4
     }
 
-    var dots = d3.select(dom);
+    return (
+      <g>
+        {
+          dataset.map((dot) => {
+            var symbol = dot.symbol? dot.symbol: defaultSymbol;
+            var symbolSize = dot.symbolSize? dot.symbolSize: defaultSymbolSize;
 
-    dots.selectAll('g')
-      .data(dataset)
-    .enter().append('g')
-      .each(function(dot) {
+            return dot.data.map((d) => {
+              var symbolFunc = D3Shape.symbol()
+                .size(symbolSize * symbolSize)
+                .type(
+                  () => {
+                    console.log(symbol)
 
-        var symbol = dot.symbol? dot.symbol: defaultSymbol;
-        var symbolSize = dot.symbolSize? dot.symbolSize: defaultSymbolSize;
+                    if(symbol === 'circle') {
+                      return D3Shape.symbolCircle
+                    }else if(symbol === 'cross') {
+                      return D3Shape.symbolCross
+                    }else if(symbol === 'diamond') {
+                      return D3Shape.symbolDiamond
+                    }else if(symbol === 'square') {
+                      return D3Shape.symbolSquare
+                    }else if(symbol === 'star') {
+                      return D3Shape.symbolStar
+                    }else if(symbol === 'triangle') {
+                      return D3Shape.symbolTriangle
+                    }else if(symbol === 'wye') {
+                      return D3Shape.symbolWye
+                    }else {
+                      console.error('Symbol is not support ' + symbol + '.')
+                    }
+                  }
+                )
+                
 
-        var dom = d3.select(this)
-          .selectAll(`${scatterClassName}`)
-          .data(dot.data)
-        .enter().append('path')
-          .attr('class', 'react-d3-basic__scatter__path')
-          .style('fill', dot.color)
-          .attr('transform', (d) => { return "translate(" + xScaleSet(d.x) + "," + yScaleSet(d.y) + ")"; })
-          .attr('d', d3.svg.symbol().size((d) => { return symbolSize * symbolSize;}).type(symbol))
+              // ({
+              //   size: symbolSize * symbolSize,
+              //   type: D3Shape.symbolCross
+              // })()
 
-        // set style for dot
-        if(dot.style) {
-          for(var key in dot.style) {
-            dom.style(key, dot.style[key]);
-          }
+              return (
+                <path
+                  className='react-d3-basic__scatter__path'
+                  fill={d.color}
+                  transform={"translate(" + xScaleSet(d.x) + "," + yScaleSet(d.y) + ")"}
+                  d={symbolFunc()}
+                  style={dot.style}
+                  />
+              )
+            })
+          })
         }
-      })
-
-    return dots;
+      </g>
+    )
   }
 
   render() {
     var d = series(this.props);
+    var scatter = this._mkScatter(d);
 
-    var scatterPlot = ReactFauxDOM.createElement('g');
-    var scatter = this._mkScatter(scatterPlot, d);
-
-    return scatter.node().toReact();
+    return (
+      <g>
+        {scatter}
+      </g>
+    )
   }
 }

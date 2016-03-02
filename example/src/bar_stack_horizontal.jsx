@@ -30,7 +30,7 @@ var chartSeries = [
       field: '25 to 44 Years',
       name: '25 to 44 Years',
       style: {
-        "fill-opacity": .4
+        "fillOpacity": .4
       }
     },
     {
@@ -81,7 +81,7 @@ module.exports = React.createClass({
             field: '25 to 44 Years',
             name: '25 to 44 Years',
             style: {
-              "fill-opacity": .4
+              "fillOpacity": .4
             }
           }
         ]: chartSeries

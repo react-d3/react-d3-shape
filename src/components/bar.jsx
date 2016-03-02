@@ -5,8 +5,6 @@ import {
   Component,
 } from 'react';
 
-import d3 from 'd3';
-import ReactFauxDOM from 'react-faux-dom';
 import {series} from '../utils/series';
 
 export default class Bar extends Component {
@@ -15,13 +13,12 @@ export default class Bar extends Component {
   }
 
   static defaultProps = {
-    interpolate: null,
     onMouseOver: (d) => {},
     onMouseOut: (d) => {},
     barClassName: 'react-d3-basic__bar'
   }
 
-  _mkBar(dom) {
+  _mkBar() {
     const {
       height,
       margins,
@@ -33,10 +30,6 @@ export default class Bar extends Component {
     } = this.props;
 
     var dataset = series(this.props)[0];
-
-    // make areas
-    var bar = d3.select(dom)
-
     var domain = yScaleSet.domain();
     var zeroBase;
 
@@ -48,39 +41,36 @@ export default class Bar extends Component {
       zeroBase = yScaleSet.range()[1];
     }
 
-    bar.selectAll(".bar")
-      .data(dataset.data)
-    .enter().append("rect")
-      .attr("class", `${barClassName} bar`)
-      .attr("x", (d) => { return xScaleSet(d.x)? xScaleSet(d.x) : -10000 })
-      .attr("width", xScaleSet.rangeBand())
-      .attr("y", (d) => { return d.y < 0 ? zeroBase: yScaleSet(d.y); })
-      .attr("height", (d) => { return d.y < domain[0] ? 0: Math.abs(zeroBase - yScaleSet(d.y))})
-      .style("fill", (d) => { return d._style.color? d._style.color: dataset.color })
-      .each(function(d) {
-        var dom = d3.select(this)
-        if(d._style) {
-          for(var key in d._style) {
-            dom.style(key, d._style[key]);
-          }
+    return (
+      <g>
+        {
+          dataset.data.map((bar) => {
+            return (
+              <rect 
+                className={`${barClassName} bar`}
+                x={xScaleSet(bar.x)? xScaleSet(bar.x) : -10000}
+                y={bar.y < 0 ? zeroBase: yScaleSet(bar.y)}
+                width={xScaleSet.rangeBand()}
+                height={bar.y < domain[0] ? 0: Math.abs(zeroBase - yScaleSet(bar.y))}
+                fill={bar._style.color? bar._style.color: dataset.color}
+                style={Object.assign({}, dataset.style, bar._style)}
+                onMouseOut={onMouseOut}
+                onMouseOver={onMouseOver}
+                />
+            )
+          })
         }
-      })
-      .on("mouseover", onMouseOver)
-      .on("mouseout", onMouseOut)
-
-    if(dataset.style) {
-      for(var key in dataset.style) {
-        bar.style(key, dataset.style[key]);
-      }
-    }
-
-    return bar;
+      </g>
+    );
   }
 
   render() {
-    var barChart = ReactFauxDOM.createElement('g');
-    var bar = this._mkBar(barChart);
+    var bar = this._mkBar();
 
-    return bar.node().toReact();
+    return (
+      <g>
+        {bar}
+      </g>
+    );
   }
 }

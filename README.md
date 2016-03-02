@@ -59,9 +59,7 @@ npm install --save react-d3-shape
 
 ```
 $ sudo npm i
-$ sudo npm i -g babel@5.8.23
-$ sudo npm run build
-$ webpack -w
+$ node devServer.js
 ```
 
 Build production `js`, `min.js` code

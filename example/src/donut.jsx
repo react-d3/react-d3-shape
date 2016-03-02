@@ -30,7 +30,7 @@ var value = function(d) {
       "field": "18-24",
       "name": "18 to 24",
       style: {
-        "fill-opacity": .5
+        "fillOpacity": .5
       }
     },
     {
@@ -51,6 +51,7 @@ module.exports = React.createClass({
         chartSeries= {chartSeries}
         >
         <Pie
+          innerRadius={150}
           data= {generalChartData}
           chartSeries= {chartSeries}
           value = {value}

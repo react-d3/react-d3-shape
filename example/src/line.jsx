@@ -19,9 +19,9 @@ var chartSeries = [
       name: 'Age',
       color: '#ff7f0e',
       style: {
-        "stroke-width": 2,
-        "stroke-opacity": .2,
-        "fill-opacity": .2
+        "strokeWidth": 2,
+        "strokeOpacity": .2,
+        "fillOpacity": .2
       }
     }
   ],
@@ -40,9 +40,9 @@ module.exports = React.createClass({
         name: 'BMI',
         color: 'red',
         style: {
-          "stroke-width": 5,
-          "stroke-opacity": .2,
-          "fill-opacity": .2
+          "strokeWidth": 5,
+          "strokeOpacity": .2,
+          "fillOpacity": .2
         }
       }]
     }
@@ -56,9 +56,9 @@ module.exports = React.createClass({
         name: 'Age',
         color: '#ff7f0e',
         style: {
-          "stroke-width": 5,
-          "stroke-opacity": .2,
-          "fill-opacity": .2
+          "strokeWidth": 5,
+          "strokeOpacity": .2,
+          "fillOpacity": .2
         }
       }]: chartSeries
     })

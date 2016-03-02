@@ -59,6 +59,8 @@ export default class ChartSvg extends Component {
       y
     } = this.props;
 
+    console.log(yScale)
+
     var xRange = xRange || [0, width - margins.left - margins.right];
     var yRange = yRange || [height - margins.top - margins.bottom, 0]
     var xRangeRoundBands = xRangeRoundBands || {interval: [0, width - margins.left - margins.right], padding: .1};

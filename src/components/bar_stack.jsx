@@ -6,7 +6,6 @@ import {
 } from 'react';
 
 import d3 from 'd3';
-import ReactFauxDOM from 'react-faux-dom';
 import {series} from '../utils/series';
 
 export default class BarStack extends Component {
@@ -20,7 +19,7 @@ export default class BarStack extends Component {
     barClassName: 'react-d3-basic__bar_stack'
   }
 
-  _mkBarStack(dom) {
+  _mkBarStack() {
     const {
       height,
       margins,
@@ -32,12 +31,7 @@ export default class BarStack extends Component {
     } = this.props;
 
     var dataset = series(this.props);
-
     const _setStack = this._setStack();
-
-    // make areas
-    var chart = d3.select(dom)
-      .attr("class", "g")
 
     var domain = yScaleSet.domain();
     var zeroBase;
@@ -50,33 +44,36 @@ export default class BarStack extends Component {
       zeroBase = yScaleSet.range()[1];
     }
 
-    var barGroup = chart.selectAll("g")
-      .data(_setStack(dataset))
-    .enter().append("g")
-      .attr("class", "barGroup")
-      .style("fill", (d) => {return d.color;})
-      .attr("style", (d) => {
-        var s = '';
-        if(d.style) {
-          for(var key in d.style) {
-            s += key + ':' + d.style[key] + ';';
-          }
+    return (
+      <g>
+        {
+          _setStack(dataset).map((barGroup) => {
+            return (
+              <g 
+                className="barGroup"
+                fill={barGroup.color}
+                style={barGroup.style}>
+                {
+                  barGroup.data.map((bar) => {
+                    return (
+                      <rect
+                        className={`${barClassName} bar`}
+                        width={xScaleSet.rangeBand()}
+                        x={xScaleSet(bar.x)? xScaleSet(bar.x): -10000}
+                        y={yScaleSet(bar.y0 + bar.y)}
+                        height={Math.abs(yScaleSet(bar.y) - yScaleSet(0))}
+                        onMouseOver={onMouseOver}
+                        onMouseOut={onMouseOut}
+                        />
+                    )
+                  })
+                }
+              </g>
+            )
+          })
         }
-        return s;
-      })
-
-    barGroup.selectAll("rect")
-      .data((d) => {return d.data;})
-    .enter().append("rect")
-      .attr("class", `${barClassName} bar`)
-      .attr("width", xScaleSet.rangeBand())
-      .attr("x", (d) => { return xScaleSet(d.x)? xScaleSet(d.x): -10000 })
-      .attr("y", (d, i) => { return yScaleSet(d.y0 + d.y); })
-      .attr("height", (d, i) => { return Math.abs(yScaleSet(d.y) - yScaleSet(0));})
-      .on("mouseover", onMouseOver)
-      .on("mouseout", onMouseOut)
-
-    return chart;
+      </g>
+    )
   }
 
   _setStack () {
@@ -112,9 +109,12 @@ export default class BarStack extends Component {
   }
 
   render() {
-    var barChart = ReactFauxDOM.createElement('g');
-    var bar = this._mkBarStack(barChart);
+    var bar = this._mkBarStack();
 
-    return bar.node().toReact();
+    return (
+      <g>
+        {bar}
+      </g>
+    )
   }
 }

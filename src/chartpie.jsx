@@ -12,7 +12,6 @@ import {
   yDomainCount
 } from 'react-d3-core';
 
-import d3 from 'd3';
 import CommonProps from './commonProps';
 
 export default class ChartSvg extends Component {
@@ -20,9 +19,10 @@ export default class ChartSvg extends Component {
     super (props);
   }
 
-  static defaultProps = Object.assign(CommonProps, {
-    svgClassName: 'react-d3-core__container_svg'
-  })
+  static defaultProps = {
+    svgClassName: 'react-d3-core__container_svg',
+    ...CommonProps
+  }
 
   static propTypes = {
     id: PropTypes.string,

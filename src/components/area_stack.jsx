@@ -6,8 +6,7 @@ import {
   PropTypes,
 } from 'react';
 
-import d3 from 'd3';
-import ReactFauxDOM from 'react-faux-dom';
+import D3Shape from 'd3-shape'
 import CommonProps from '../commonProps';
 import {series} from '../utils/series';
 
@@ -16,13 +15,13 @@ export default class AreaStack extends Component {
     super(props);
   }
 
-  static defaultProps = Object.assign(CommonProps, {
+  static defaultProps = {
     areaClass: 'react-d3-basics__area_stack',
-    interpolate: null,
-    areaClassName: 'react-d3-basic__area_stack'
-  })
+    areaClassName: 'react-d3-basic__area_stack',
+    ...CommonProps
+  }
 
-  _mkStack(dom) {
+  _mkStack() {
     const {
       areaClassName
     } = this.props;
@@ -30,29 +29,24 @@ export default class AreaStack extends Component {
     var dataset = series(this.props);
 
     const _setStack = this._setStack();
-    const _setAxis = this._setAxes();
+    const _setAxes = this._setAxes();
 
-    // make areas
-    var chart = d3.select(dom)
-      .attr("class", `${areaClassName} area-group`)
-
-    chart.selectAll("path")
-      .data(_setStack(dataset))
-    .enter().append("path")
-      .attr("class", "area")
-      .style("fill", (d) => {return d.color} )
-      .attr("d", (d) => { return _setAxis(d.data) })
-      .attr("style", (d) => {
-        var s = '';
-        if(d.style) {
-          for(var key in d.style) {
-            s += key + ':' + d.style[key] + ';';
-          }
+    return (
+      <g>
+        {
+          _setStack(dataset).map((area) => {
+            return (
+              <path
+                className={`${areaClassName} area`}
+                fill={area.color}
+                d={_setAxes(area.data)}
+                style={area.style}
+                />
+            )
+          })
         }
-        return s;
-      })
-
-    return chart;
+      </g>
+    );
   }
 
   _setStack () {
@@ -91,21 +85,22 @@ export default class AreaStack extends Component {
   _setAxes () {
     const {
       xScaleSet,
-      yScaleSet,
-      interpolate
+      yScaleSet
     } = this.props;
 
-    return d3.svg.area()
-      .interpolate(interpolate)
+    return D3Shape.area()
       .x((d) => { return xScaleSet(d.x) })
       .y0((d) => { return yScaleSet(d.y0) })
       .y1((d) => { return yScaleSet(d.y0 + d.y) });
   }
 
   render() {
-    var areaPath = ReactFauxDOM.createElement('g');
-    var area = this._mkStack(areaPath);
+    var area = this._mkStack();
 
-    return area.node().toReact();
+    return (
+      <g>
+        {area}
+      </g>
+    );
   }
 }

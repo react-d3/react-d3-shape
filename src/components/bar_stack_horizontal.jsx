@@ -6,7 +6,6 @@ import {
 } from 'react';
 
 import d3 from 'd3';
-import ReactFauxDOM from 'react-faux-dom';
 import {series} from '../utils/series';
 
 export default class BarStackHorizontal extends Component {
@@ -49,33 +48,37 @@ export default class BarStackHorizontal extends Component {
       zeroBase = xScaleSet.range()[1];
     }
 
-    var barGroup = chart.selectAll("g")
-      .data(_setStack(dataset))
-    .enter().append("g")
-      .attr("class", "barGroup")
-      .style("fill", (d) => {return d.color;})
-      .attr("style", (d) => {
-        var s = '';
-        if(d.style) {
-          for(var key in d.style) {
-            s += key + ':' + d.style[key] + ';';
-          }
+    return (
+      <g>
+        {
+          _setStack(dataset).map((barGroup) => {
+            return(
+              <g
+                className="barGroup"
+                fill={barGroup.color}
+                style={barGroup.style}
+                >
+                {
+                  barGroup.data.map((bar) => {
+                    return(
+                      <rect
+                        className={`${barClassName} bar`}
+                        height={yScaleSet.rangeBand()}
+                        y={yScaleSet(bar.y)? yScaleSet(bar.y): -10000}
+                        x={xScaleSet(bar.x0)}
+                        width={Math.abs(xScaleSet(bar.x) - xScaleSet(0))}
+                        onMouseOver={onMouseOver}
+                        onMouseOut={onMouseOut}
+                        />
+                    )
+                  })
+                }
+              </g>
+            )
+          })
         }
-        return s;
-      })
-
-    barGroup.selectAll("rect")
-      .data((d) => {return d.data;})
-    .enter().append("rect")
-      .attr("class", `${barClassName} bar`)
-      .attr("height", yScaleSet.rangeBand())
-      .attr("y", (d) => { return yScaleSet(d.y)? yScaleSet(d.y): -10000 })
-      .attr("x", (d, i) => { return xScaleSet(d.x0); })
-      .attr("width", (d, i) => { return Math.abs(xScaleSet(d.x) - xScaleSet(0));})
-      .on("mouseover", onMouseOver)
-      .on("mouseout", onMouseOut)
-
-    return chart;
+      </g>
+    )
   }
 
   _setStack () {
@@ -112,9 +115,12 @@ export default class BarStackHorizontal extends Component {
   }
 
   render() {
-    var barChart = ReactFauxDOM.createElement('g');
-    var bar = this._mkBarStack(barChart);
+    var bar = this._mkBarStack();
 
-    return bar.node().toReact();
+    return (
+      <g>
+        {bar}
+      </g>
+    )
   }
 }

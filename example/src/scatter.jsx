@@ -16,7 +16,7 @@ var chartSeries = [
       color: '#ff7f0e',
       symbol: "cross",
       style: {
-        "fill-opacity": .5
+        "fillOpacity": .5
       }
     },
     {
@@ -29,7 +29,7 @@ var chartSeries = [
       field: 'Austin',
       name: 'Austin Temp',
       color: '#7777ff',
-      symbol: 'triangle-down'
+      symbol: 'triangle'
     }
   ],
   x = function(d) {
@@ -57,7 +57,7 @@ module.exports = React.createClass({
         field: 'Austin',
         name: 'Austin Temp',
         color: '#7777ff',
-        symbol: 'triangle-down'
+        symbol: 'triangle'
       }]: chartSeries
     })
   },
