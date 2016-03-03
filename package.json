@@ -1,6 +1,6 @@
 {
   "name": "react-d3-shape",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "react shape component",
   "main": "./lib/index.js",
   "directories": {
