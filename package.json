@@ -8,14 +8,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "npm run build && npm run prod",
     "build": "rm -rf ./lib && ./node_modules/.bin/babel ./src --out-dir ./lib",
     "prod": "NODE_ENV=0 webpack --config webpack.prod.config.js && NODE_ENV=1 webpack --config webpack.prod.config.js"
   },
   "author": "ElixirDoc team",
   "license": "Apache 2.0",
   "devDependencies": {
-    "babel": "^6.0.0",
+    "babel-cli": "^6.6.4",
     "babel-core": "^6.5.2",
     "babel-eslint": "^3.1.9",
     "babel-loader": "^6.2.3",
