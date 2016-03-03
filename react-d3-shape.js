@@ -20317,8 +20317,20 @@ var ReactD3Shape =
 	  }
 
 	  _createClass(Bar, [{
+	    key: 'triggerOver',
+	    value: function triggerOver(data, e) {
+	      this.props.onMouseOver(e, data);
+	    }
+	  }, {
+	    key: 'triggerOut',
+	    value: function triggerOut(data, e) {
+	      this.props.onMouseOut(e, data);
+	    }
+	  }, {
 	    key: '_mkBar',
 	    value: function _mkBar() {
+	      var _this2 = this;
+
 	      var _props = this.props;
 	      var height = _props.height;
 	      var width = _props.width;
@@ -20326,9 +20338,8 @@ var ReactD3Shape =
 	      var barClassName = _props.barClassName;
 	      var xScaleSet = _props.xScaleSet;
 	      var yScaleSet = _props.yScaleSet;
-	      var onMouseOut = _props.onMouseOut;
-	      var onMouseOver = _props.onMouseOver;
 
+	      var that = this;
 	      var dataset = (0, _series.series)(this.props)[0];
 	      var domain = yScaleSet.domain();
 	      var zeroBase;
@@ -20350,8 +20361,8 @@ var ReactD3Shape =
 	          height: bar.y < domain[0] ? 0 : Math.abs(zeroBase - yScaleSet(bar.y)),
 	          fill: bar._style.color ? bar._style.color : dataset.color,
 	          style: Object.assign({}, dataset.style, bar._style),
-	          onMouseOut: onMouseOut,
-	          onMouseOver: onMouseOver
+	          onMouseOut: that.triggerOut.bind(_this2, bar),
+	          onMouseOver: that.triggerOver.bind(_this2, bar)
 	        });
 	      }));
 	    }
@@ -20475,17 +20486,28 @@ var ReactD3Shape =
 	  }
 
 	  _createClass(BarHorizontal, [{
+	    key: 'triggerOver',
+	    value: function triggerOver(data, e) {
+	      this.props.onMouseOver(e, data);
+	    }
+	  }, {
+	    key: 'triggerOut',
+	    value: function triggerOut(data, e) {
+	      this.props.onMouseOut(e, data);
+	    }
+	  }, {
 	    key: '_mkBar',
 	    value: function _mkBar(dom) {
+	      var _this2 = this;
+
 	      var _props = this.props;
 	      var height = _props.height;
 	      var margins = _props.margins;
 	      var barClassName = _props.barClassName;
 	      var xScaleSet = _props.xScaleSet;
 	      var yScaleSet = _props.yScaleSet;
-	      var onMouseOut = _props.onMouseOut;
-	      var onMouseOver = _props.onMouseOver;
 
+	      var that = this;
 	      var dataset = (0, _series.series)(this.props, true)[0];
 	      var domain = xScaleSet.domain();
 	      var zeroBase;
@@ -20507,8 +20529,8 @@ var ReactD3Shape =
 	          width: bar.x < domain[0] ? 0 : Math.abs(zeroBase - xScaleSet(bar.x)),
 	          fill: bar._style.color ? bar._style.color : dataset.color,
 	          style: Object.assign({}, dataset.style, bar._style),
-	          onMouseOver: onMouseOver,
-	          onMouseOut: onMouseOut
+	          onMouseOut: that.triggerOut.bind(_this2, bar),
+	          onMouseOver: that.triggerOver.bind(_this2, bar)
 	        });
 	      }));
 	    }
@@ -20636,17 +20658,28 @@ var ReactD3Shape =
 	  }
 
 	  _createClass(BarGroup, [{
+	    key: 'triggerOver',
+	    value: function triggerOver(data, e) {
+	      this.props.onMouseOver(e, data);
+	    }
+	  }, {
+	    key: 'triggerOut',
+	    value: function triggerOut(data, e) {
+	      this.props.onMouseOut(e, data);
+	    }
+	  }, {
 	    key: '_mkBarGroup',
 	    value: function _mkBarGroup(dom) {
+	      var _this2 = this;
+
 	      var _props = this.props;
 	      var height = _props.height;
 	      var margins = _props.margins;
 	      var barClassName = _props.barClassName;
 	      var xScaleSet = _props.xScaleSet;
 	      var yScaleSet = _props.yScaleSet;
-	      var onMouseOut = _props.onMouseOut;
-	      var onMouseOver = _props.onMouseOver;
 
+	      var that = this;
 	      var dataset = (0, _series.series)(this.props);
 	      var x1 = _d3Scale2.default.scaleBand();
 
@@ -20675,8 +20708,8 @@ var ReactD3Shape =
 	            y: bar.y < 0 ? zeroBase : yScaleSet(bar.y),
 	            height: bar.y < domain[0] ? 0 : Math.abs(zeroBase - yScaleSet(bar.y)),
 	            fill: barGroup.color,
-	            onMouseOver: onMouseOver,
-	            onMouseOut: onMouseOut,
+	            onMouseOut: that.triggerOut.bind(_this2, bar),
+	            onMouseOver: that.triggerOver.bind(_this2, bar),
 	            style: barGroup.style
 	          });
 	        }));
@@ -20806,8 +20839,20 @@ var ReactD3Shape =
 	  }
 
 	  _createClass(BarGroupHorizontal, [{
+	    key: 'triggerOver',
+	    value: function triggerOver(data, e) {
+	      this.props.onMouseOver(e, data);
+	    }
+	  }, {
+	    key: 'triggerOut',
+	    value: function triggerOut(data, e) {
+	      this.props.onMouseOut(e, data);
+	    }
+	  }, {
 	    key: '_mkBarGroup',
 	    value: function _mkBarGroup() {
+	      var _this2 = this;
+
 	      var _props = this.props;
 	      var height = _props.height;
 	      var margins = _props.margins;
@@ -20817,6 +20862,7 @@ var ReactD3Shape =
 	      var onMouseOut = _props.onMouseOut;
 	      var onMouseOver = _props.onMouseOver;
 
+	      var that = this;
 	      var dataset = (0, _series.series)(this.props, true);
 	      var y1 = _d3Scale2.default.scaleBand();
 
@@ -20845,8 +20891,8 @@ var ReactD3Shape =
 	            x: bar.x > 0 ? zeroBase : zeroBase - Math.abs(zeroBase - xScaleSet(bar.x)),
 	            width: bar.x < domain[0] ? 0 : Math.abs(zeroBase - xScaleSet(bar.x)),
 	            fill: barGroup.color,
-	            onMouseOver: onMouseOver,
-	            onMouseOut: onMouseOut,
+	            onMouseOut: that.triggerOut.bind(_this2, bar),
+	            onMouseOver: that.triggerOver.bind(_this2, bar),
 	            style: barGroup.style
 	          });
 	        }));
@@ -20976,17 +21022,28 @@ var ReactD3Shape =
 	  }
 
 	  _createClass(BarStack, [{
+	    key: 'triggerOver',
+	    value: function triggerOver(data, e) {
+	      this.props.onMouseOver(e, data);
+	    }
+	  }, {
+	    key: 'triggerOut',
+	    value: function triggerOut(data, e) {
+	      this.props.onMouseOut(e, data);
+	    }
+	  }, {
 	    key: '_mkBarStack',
 	    value: function _mkBarStack() {
+	      var _this2 = this;
+
 	      var _props = this.props;
 	      var height = _props.height;
 	      var margins = _props.margins;
 	      var barClassName = _props.barClassName;
 	      var xScaleSet = _props.xScaleSet;
 	      var yScaleSet = _props.yScaleSet;
-	      var onMouseOver = _props.onMouseOver;
-	      var onMouseOut = _props.onMouseOut;
 
+	      var that = this;
 	      var dataset = (0, _series.series)(this.props);
 	      var _setStack = this._setStack();
 
@@ -21012,8 +21069,8 @@ var ReactD3Shape =
 	            x: xScaleSet(bar.x) || xScaleSet(bar.x) === 0 ? xScaleSet(bar.x) : -10000,
 	            y: yScaleSet(bar.y0 + bar.y),
 	            height: Math.abs(yScaleSet(bar.y) - yScaleSet(0)),
-	            onMouseOver: onMouseOver,
-	            onMouseOut: onMouseOut
+	            onMouseOut: that.triggerOut.bind(_this2, bar),
+	            onMouseOver: that.triggerOver.bind(_this2, bar)
 	          });
 	        }));
 	      }));
@@ -21172,17 +21229,28 @@ var ReactD3Shape =
 	  }
 
 	  _createClass(BarStackHorizontal, [{
+	    key: 'triggerOver',
+	    value: function triggerOver(data, e) {
+	      this.props.onMouseOver(e, data);
+	    }
+	  }, {
+	    key: 'triggerOut',
+	    value: function triggerOut(data, e) {
+	      this.props.onMouseOut(e, data);
+	    }
+	  }, {
 	    key: '_mkBarStack',
 	    value: function _mkBarStack(dom) {
+	      var _this2 = this;
+
 	      var _props = this.props;
 	      var height = _props.height;
 	      var margins = _props.margins;
 	      var barClassName = _props.barClassName;
 	      var xScaleSet = _props.xScaleSet;
 	      var yScaleSet = _props.yScaleSet;
-	      var onMouseOver = _props.onMouseOver;
-	      var onMouseOut = _props.onMouseOut;
 
+	      var that = this;
 	      var dataset = (0, _series.series)(this.props, true);
 	      var _setStack = this._setStack();
 
@@ -21212,8 +21280,8 @@ var ReactD3Shape =
 	            y: yScaleSet(bar.y) || yScaleSet(bar.y) === 0 ? yScaleSet(bar.y) : -10000,
 	            x: xScaleSet(bar.x0),
 	            width: Math.abs(xScaleSet(bar.x) - xScaleSet(0)),
-	            onMouseOver: onMouseOver,
-	            onMouseOut: onMouseOut
+	            onMouseOut: that.triggerOut.bind(_this2, bar),
+	            onMouseOver: that.triggerOver.bind(_this2, bar)
 	          });
 	        }));
 	      }));
@@ -21384,6 +21452,16 @@ var ReactD3Shape =
 	  }
 
 	  _createClass(Pie, [{
+	    key: 'triggerOver',
+	    value: function triggerOver(data, e) {
+	      this.props.onMouseOver(e, data);
+	    }
+	  }, {
+	    key: 'triggerOut',
+	    value: function triggerOut(data, e) {
+	      this.props.onMouseOut(e, data);
+	    }
+	  }, {
 	    key: 'mkSeries',
 	    value: function mkSeries() {
 	      var _props = this.props;
@@ -21415,6 +21493,8 @@ var ReactD3Shape =
 	  }, {
 	    key: '_mkPie',
 	    value: function _mkPie() {
+	      var _this2 = this;
+
 	      var _props2 = this.props;
 	      var width = _props2.width;
 	      var height = _props2.height;
@@ -21423,9 +21503,8 @@ var ReactD3Shape =
 	      var pieSort = _props2.pieSort;
 	      var value = _props2.value;
 	      var radius = _props2.radius;
-	      var onMouseOut = _props2.onMouseOut;
-	      var onMouseOver = _props2.onMouseOver;
 
+	      var that = this;
 	      var radius = this.props.radius || Math.min(width - 100, height - 100) / 2;
 	      var outerRadius = outerRadius || radius - 10;
 	      var labelr = radius + 10;
@@ -21463,8 +21542,8 @@ var ReactD3Shape =
 	          key: i,
 	          d: arc(slice),
 	          style: _extends({ fill: slice.data.color, stroke: '#FFF' }, slice.data.style),
-	          onMouseOver: onMouseOver,
-	          onMouseOut: onMouseOut
+	          onMouseOut: that.triggerOut.bind(_this2, slice),
+	          onMouseOver: that.triggerOver.bind(_this2, slice)
 	        }), _react3.default.createElement('text', {
 	          transform: textTransform(slice),
 	          dy: '.35em',
