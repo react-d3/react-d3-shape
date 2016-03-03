@@ -12,7 +12,6 @@ import {
   yDomainCount
 } from 'react-d3-core';
 
-import d3 from 'd3';
 import CommonProps from './commonProps';
 
 export default class ChartSvg extends Component {
@@ -49,8 +48,10 @@ export default class ChartSvg extends Component {
       yTicks,
       xTickFormat,
       yTickFormat,
-      xRangeRoundBands,
-      yRangeRoundBands,
+      xBandPaddingInner,
+      xBandPaddingOuter,
+      yBandPaddingInner,
+      yBandPaddingOuter,
       stack,
       data,
       svgClassName,
@@ -59,20 +60,23 @@ export default class ChartSvg extends Component {
       y
     } = this.props;
 
-    console.log(yScale)
-
     var xRange = xRange || [0, width - margins.left - margins.right];
     var yRange = yRange || [height - margins.top - margins.bottom, 0]
-    var xRangeRoundBands = xRangeRoundBands || {interval: [0, width - margins.left - margins.right], padding: .1};
-    var yRangeRoundBands = yRangeRoundBands || {interval: [0, height - margins.top - margins.bottom], padding: .1};
     var xDomain = xDomain || xDomainCount(this.props, stack, horizontal);
     var yDomain = yDomain || yDomainCount(this.props, stack, horizontal);
+
+    if(xScale === 'ordinal')
+      xScale = 'band'
+
+    if(yScale === 'ordinal')
+      yScale = 'band'
 
     var newXScale = {
       scale: xScale,
       range: xRange,
       domain: xDomain,
-      rangeRoundBands: xRangeRoundBands
+      bandPaddingInner: xBandPaddingInner,
+      bandPaddingOuter: xBandPaddingOuter
     }
 
     var xScaleSet = scale(newXScale);
@@ -81,7 +85,8 @@ export default class ChartSvg extends Component {
       scale: yScale,
       range: yRange,
       domain: yDomain,
-      rangeRoundBands: yRangeRoundBands
+      bandPaddingInner: yBandPaddingInner,
+      bandPaddingOuter: yBandPaddingOuter
     }
 
     var yScaleSet = scale(newYScale);
@@ -98,8 +103,10 @@ export default class ChartSvg extends Component {
           yDomain: yDomain,
           xRange: xRange,
           yRange: yRange,
-          xRangeRoundBands: xRangeRoundBands,
-          yRangeRoundBands: yRangeRoundBands,
+          xBandPaddingInner: xBandPaddingInner,
+          xBandPaddingOuter: xBandPaddingOuter,
+          yBandPaddingInner: yBandPaddingInner,
+          yBandPaddingOuter: yBandPaddingOuter,
           xScale: xScale,
           yScale: yScale,
           xTickFormat: xTickFormat,

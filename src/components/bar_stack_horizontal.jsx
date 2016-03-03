@@ -63,8 +63,8 @@ export default class BarStackHorizontal extends Component {
                     return(
                       <rect
                         className={`${barClassName} bar`}
-                        height={yScaleSet.rangeBand()}
-                        y={yScaleSet(bar.y)? yScaleSet(bar.y): -10000}
+                        height={yScaleSet.bandwidth()}
+                        y={yScaleSet(bar.y) || yScaleSet(bar.y) === 0? yScaleSet(bar.y): -10000}
                         x={xScaleSet(bar.x0)}
                         width={Math.abs(xScaleSet(bar.x) - xScaleSet(0))}
                         onMouseOver={onMouseOver}

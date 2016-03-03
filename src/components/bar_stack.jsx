@@ -58,8 +58,8 @@ export default class BarStack extends Component {
                     return (
                       <rect
                         className={`${barClassName} bar`}
-                        width={xScaleSet.rangeBand()}
-                        x={xScaleSet(bar.x)? xScaleSet(bar.x): -10000}
+                        width={xScaleSet.bandwidth()}
+                        x={xScaleSet(bar.x) || xScaleSet(bar.x) === 0? xScaleSet(bar.x): -10000}
                         y={yScaleSet(bar.y0 + bar.y)}
                         height={Math.abs(yScaleSet(bar.y) - yScaleSet(0))}
                         onMouseOver={onMouseOver}

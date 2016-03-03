@@ -82,6 +82,8 @@ var Container = React.createClass({
       <div>
         <button onClick={this.onClick}>toggle</button>
         <Chart
+          xBandPaddingInner={.2}
+          xBandPaddingOuter={.2}
           width= {this.state.width}
           height= {this.state.height}
           data= {generalChartData}

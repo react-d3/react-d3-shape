@@ -21,6 +21,7 @@ export default class Bar extends Component {
   _mkBar() {
     const {
       height,
+      width,
       margins,
       barClassName,
       xScaleSet,
@@ -48,9 +49,9 @@ export default class Bar extends Component {
             return (
               <rect 
                 className={`${barClassName} bar`}
-                x={xScaleSet(bar.x)? xScaleSet(bar.x) : -10000}
+                x={xScaleSet(bar.x) || xScaleSet(bar.x) === 0? xScaleSet(bar.x) : -10000}
                 y={bar.y < 0 ? zeroBase: yScaleSet(bar.y)}
-                width={xScaleSet.rangeBand()}
+                width={xScaleSet.bandwidth()}
                 height={bar.y < domain[0] ? 0: Math.abs(zeroBase - yScaleSet(bar.y))}
                 fill={bar._style.color? bar._style.color: dataset.color}
                 style={Object.assign({}, dataset.style, bar._style)}

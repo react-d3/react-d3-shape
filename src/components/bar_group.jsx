@@ -5,7 +5,7 @@ import {
   Component,
 } from 'react';
 
-import d3 from 'd3';
+import D3Scale from 'd3-scale';
 import {series} from '../utils/series';
 
 export default class BarGroup extends Component {
@@ -31,11 +31,13 @@ export default class BarGroup extends Component {
     } = this.props;
 
     var dataset = series(this.props);
-    var x1 = d3.scale.ordinal();
+    var x1 = D3Scale.scaleBand();
 
     // mapping x1, inner x axis
     x1.domain(dataset.map((d) => { return d.field}))
-      .rangeRoundBands([0, xScaleSet.rangeBand()]);
+      .range([0, xScaleSet.bandwidth()])
+      .padding(.1)
+      .round(true)
 
     var domain = yScaleSet.domain();
     var zeroBase;
@@ -55,12 +57,11 @@ export default class BarGroup extends Component {
           <g className="bargroup">
             {
               barGroup.data.map((bar) => {
-                console.log(bar)
                 return (
                   <rect
                     className={`${barClassName} bar`}
-                    width={x1.rangeBand()}
-                    x={xScaleSet(bar.x)? (xScaleSet(bar.x) + x1.rangeBand() * i) : -10000}
+                    width={x1.bandwidth()}
+                    x={xScaleSet(bar.x) || xScaleSet(bar.x) === 0? (xScaleSet(bar.x) + x1.bandwidth() * i) : -10000}
                     y={bar.y < 0 ? zeroBase: yScaleSet(bar.y)}
                     height={bar.y < domain[0] ? 0: Math.abs(zeroBase - yScaleSet(bar.y))}
                     fill={barGroup.color}
