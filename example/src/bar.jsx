@@ -28,11 +28,15 @@ var chartSeries = [
     return +d;
   },
   yTicks = [10, "%"],
-  onMouseOver = function(d, i) {
-    console.log(d, i);
+  onMouseOver = function(e, d) {
+    console.log(d);
+    console.log(e.clientX)
+    console.log(e.clientY)
   },
-  onMouseOut = function(d, i) {
-    console.log(d, i);
+  onMouseOut = function(e, d) {
+    console.log(d);
+    console.log(e.clientX)
+    console.log(e.clientY)
   }
 
 generalChartData.map(function(d, i) {

@@ -19,6 +19,14 @@ export default class Pie extends Component {
     ...pieProps
   }
 
+  triggerOver(data , e) {
+    this.props.onMouseOver(e, data)
+  }
+
+  triggerOut(data, e) {
+    this.props.onMouseOut(e, data)
+  }
+
   mkSeries() {
     const {
       data,
@@ -59,11 +67,10 @@ export default class Pie extends Component {
       outerRadius,
       pieSort,
       value,
-      radius,
-      onMouseOut,
-      onMouseOver
+      radius
     } = this.props;
 
+    const that = this
     var radius = this.props.radius || Math.min(width - 100, height - 100) / 2;
     var outerRadius = outerRadius || (radius - 10)
     var labelr = radius + 10;
@@ -108,8 +115,8 @@ export default class Pie extends Component {
                   key={i}
                   d={arc(slice)} 
                   style={{fill: slice.data.color, stroke: '#FFF', ...slice.data.style}}
-                  onMouseOver={onMouseOver}
-                  onMouseOut={onMouseOut}
+                  onMouseOut={that.triggerOut.bind(this, slice)}
+                  onMouseOver={that.triggerOver.bind(this, slice)}
                   />
                 <text
                   transform={textTransform(slice)}

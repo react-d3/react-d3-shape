@@ -19,17 +19,25 @@ export default class BarGroup extends Component {
     barClassName: 'react-d3-basic__bar_group'
   }
 
+  triggerOver(data , e) {
+    this.props.onMouseOver(e, data)
+  }
+
+  triggerOut(data, e) {
+    this.props.onMouseOut(e, data)
+  }
+
+
   _mkBarGroup(dom) {
     const {
       height,
       margins,
       barClassName,
       xScaleSet,
-      yScaleSet,
-      onMouseOut,
-      onMouseOver
+      yScaleSet
     } = this.props;
 
+    const that = this
     var dataset = series(this.props);
     var x1 = D3Scale.scaleBand();
 
@@ -65,8 +73,8 @@ export default class BarGroup extends Component {
                     y={bar.y < 0 ? zeroBase: yScaleSet(bar.y)}
                     height={bar.y < domain[0] ? 0: Math.abs(zeroBase - yScaleSet(bar.y))}
                     fill={barGroup.color}
-                    onMouseOver={onMouseOver}
-                    onMouseOut={onMouseOut}
+                    onMouseOut={that.triggerOut.bind(this, bar)}
+                    onMouseOver={that.triggerOver.bind(this, bar)}
                     style={barGroup.style}
                   />
                 )

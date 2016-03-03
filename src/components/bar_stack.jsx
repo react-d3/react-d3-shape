@@ -19,17 +19,25 @@ export default class BarStack extends Component {
     barClassName: 'react-d3-basic__bar_stack'
   }
 
+  triggerOver(data , e) {
+    this.props.onMouseOver(e, data)
+  }
+
+  triggerOut(data, e) {
+    this.props.onMouseOut(e, data)
+  }
+
+
   _mkBarStack() {
     const {
       height,
       margins,
       barClassName,
       xScaleSet,
-      yScaleSet,
-      onMouseOver,
-      onMouseOut
+      yScaleSet
     } = this.props;
 
+    const that = this
     var dataset = series(this.props);
     const _setStack = this._setStack();
 
@@ -62,8 +70,8 @@ export default class BarStack extends Component {
                         x={xScaleSet(bar.x) || xScaleSet(bar.x) === 0? xScaleSet(bar.x): -10000}
                         y={yScaleSet(bar.y0 + bar.y)}
                         height={Math.abs(yScaleSet(bar.y) - yScaleSet(0))}
-                        onMouseOver={onMouseOver}
-                        onMouseOut={onMouseOut}
+                        onMouseOut={that.triggerOut.bind(this, bar)}
+                        onMouseOver={that.triggerOver.bind(this, bar)}
                         />
                     )
                   })

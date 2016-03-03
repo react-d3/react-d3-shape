@@ -18,17 +18,25 @@ export default class BarHorizontal extends Component {
     barClassName: 'react-d3-basic__bar_horizontal'
   }
 
+  triggerOver(data , e) {
+    this.props.onMouseOver(e, data)
+  }
+
+  triggerOut(data, e) {
+    this.props.onMouseOut(e, data)
+  }
+
+
   _mkBar(dom) {
     const {
       height,
       margins,
       barClassName,
       xScaleSet,
-      yScaleSet,
-      onMouseOut,
-      onMouseOver
+      yScaleSet
     } = this.props;
 
+    const that = this
     var dataset = series(this.props, true)[0];
     var domain = xScaleSet.domain();
     var zeroBase;
@@ -54,8 +62,8 @@ export default class BarHorizontal extends Component {
                 width= {bar.x < domain[0] ? 0: Math.abs(zeroBase - xScaleSet(bar.x))}
                 fill= {bar._style.color? bar._style.color: dataset.color}
                 style= {Object.assign({}, dataset.style, bar._style)}
-                onMouseOver= {onMouseOver}
-                onMouseOut= {onMouseOut}
+                onMouseOut={that.triggerOut.bind(this, bar)}
+                onMouseOver={that.triggerOver.bind(this, bar)}
                 />
             )
           })

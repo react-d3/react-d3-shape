@@ -19,17 +19,24 @@ export default class BarStackHorizontal extends Component {
     barClassName: 'react-d3-basic__bar_stack_horizontal'
   }
 
+  triggerOver(data , e) {
+    this.props.onMouseOver(e, data)
+  }
+
+  triggerOut(data, e) {
+    this.props.onMouseOut(e, data)
+  }
+
   _mkBarStack(dom) {
     const {
       height,
       margins,
       barClassName,
       xScaleSet,
-      yScaleSet,
-      onMouseOver,
-      onMouseOut
+      yScaleSet
     } = this.props;
 
+    const that = this
     var dataset = series(this.props, true);
     const _setStack = this._setStack();
 
@@ -67,8 +74,8 @@ export default class BarStackHorizontal extends Component {
                         y={yScaleSet(bar.y) || yScaleSet(bar.y) === 0? yScaleSet(bar.y): -10000}
                         x={xScaleSet(bar.x0)}
                         width={Math.abs(xScaleSet(bar.x) - xScaleSet(0))}
-                        onMouseOver={onMouseOver}
-                        onMouseOut={onMouseOut}
+                        onMouseOut={that.triggerOut.bind(this, bar)}
+                        onMouseOver={that.triggerOver.bind(this, bar)}
                         />
                     )
                   })
