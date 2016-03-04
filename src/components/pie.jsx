@@ -67,7 +67,8 @@ export default class Pie extends Component {
       outerRadius,
       pieSort,
       value,
-      radius
+      radius,
+      pieTextShow
     } = this.props;
 
     const that = this
@@ -118,13 +119,17 @@ export default class Pie extends Component {
                   onMouseOut={that.triggerOut.bind(this, slice)}
                   onMouseOver={that.triggerOver.bind(this, slice)}
                   />
-                <text
-                  transform={textTransform(slice)}
-                  dy=".35em"
-                  textAnchor={textAnchor(slice)}
-                >
-                  {slice.data.name}
-                </text>
+                {
+                  pieTextShow? (
+                    <text
+                      transform={textTransform(slice)}
+                      dy=".35em"
+                      textAnchor={textAnchor(slice)}
+                    >
+                      {slice.data.name}
+                    </text>
+                  ): null
+                }
               </g>
             )
           })

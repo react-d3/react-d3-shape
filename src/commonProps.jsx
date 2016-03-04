@@ -23,5 +23,6 @@ export const pieProps = {
   margins: margins,
   innerRadius: 0,
   categoricalColors: D3Scale.scaleCategory10(),
-  pieSort: () => {}
+  pieSort: () => {},
+  pieTextShow: true
 }
