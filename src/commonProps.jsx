@@ -1,6 +1,6 @@
 "use strict";
 
-import d3 from 'd3';
+import D3Scale from 'd3-scale';
 
 const width = 960;
 const height = 500;
@@ -22,6 +22,6 @@ export const pieProps = {
   height: height,
   margins: margins,
   innerRadius: 0,
-  categoricalColors: d3.scale.category10(),
-  pieSort: d3.descending
+  categoricalColors: D3Scale.scaleCategory10(),
+  pieSort: () => {}
 }
