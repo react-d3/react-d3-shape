@@ -111,10 +111,9 @@ export default class Pie extends Component {
             }
 
             return (
-              <g>
-                <path 
-                  key={i}
-                  d={arc(slice)} 
+              <g key={i}>
+                <path
+                  d={arc(slice)}
                   style={{fill: slice.data.color, stroke: '#FFF', ...slice.data.style}}
                   onMouseOut={that.triggerOut.bind(this, slice)}
                   onMouseOver={that.triggerOver.bind(this, slice)}
