@@ -53,6 +53,8 @@ export default class ChartSvg extends Component {
       xBandPaddingOuter,
       yBandPaddingInner,
       yBandPaddingOuter,
+      xLabel,
+      yLabel,
       stack,
       data,
       svgClassName,
@@ -114,6 +116,8 @@ export default class ChartSvg extends Component {
           yTickFormat: yTickFormat,
           xTicks: xTicks,
           yTicks: yTicks,
+          xLabel: xLabel,
+          yLabel: yLabel,
           data: data,
           x: x,
           y: y
