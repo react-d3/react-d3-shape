@@ -32,7 +32,7 @@ export default class Line extends Component {
     return (
       <g>
         {
-          dataset.map((line, index) => {
+          dataset.map((line, i) => {
             return (
               <path
                 stroke={line.color}
@@ -40,7 +40,7 @@ export default class Line extends Component {
                 className={`${lineClassName} line`}
                 d={that._setAxes(line.data)}
                 style={line.style}
-                key={index}/>
+                key={i}/>
             )
           })
         }
