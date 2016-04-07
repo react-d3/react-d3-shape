@@ -16,6 +16,7 @@ export default class BarStack extends Component {
   static defaultProps = {
     onMouseOver: (d) => {},
     onMouseOut: (d) => {},
+    onClick: (d) => {},
     barClassName: 'react-d3-basic__bar_stack'
   }
 
@@ -26,7 +27,10 @@ export default class BarStack extends Component {
   triggerOut(data, e) {
     this.props.onMouseOut(e, data)
   }
-
+  
+  triggerClick(data, e) {
+    this.props.onClick(e, data);
+  }
 
   _mkBarStack() {
     const {
@@ -72,6 +76,7 @@ export default class BarStack extends Component {
                         height={Math.abs(yScaleSet(bar.y) - yScaleSet(0))}
                         onMouseOut={that.triggerOut.bind(this, bar)}
                         onMouseOver={that.triggerOver.bind(this, bar)}
+                        onClick={that.triggerClick.bind(this, bar)}
                         />
                     )
                   })
