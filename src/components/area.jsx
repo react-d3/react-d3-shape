@@ -9,11 +9,16 @@ import {
 import D3Shape from 'd3-shape'
 import CommonProps from '../commonProps';
 import {series} from '../utils/series';
+import {getTranslateXAmount} from '../utils/alignment';
 
 export default class Area extends Component {
   constructor (props) {
     super(props);
   }
+
+  static propTypes = {
+    pointAlign: PropTypes.oneOf('left', 'center', 'right')
+  };
 
   static defaultProps = {
     areaClassName: 'react-d3-basic__area',
@@ -76,8 +81,16 @@ export default class Area extends Component {
   render() {
     var area = this._mkArea();
 
+    const translateXAmount = getTranslateXAmount(
+      this.props.pointAlign,
+      this.props.xScaleSet.bandwidth()
+    );
+    const style = {
+      transform: `translateX(${translateXAmount}px)`
+    };
+
     return (
-      <g>
+      <g style={style}>
         {area}
       </g>
     )
