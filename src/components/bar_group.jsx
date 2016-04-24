@@ -62,11 +62,12 @@ export default class BarGroup extends Component {
     return (
       dataset.map((barGroup, i) => {
         return (
-          <g className="bargroup">
+          <g className="bargroup" key={i}>
             {
-              barGroup.data.map((bar) => {
+              barGroup.data.map((bar, j) => {
                 return (
                   <rect
+                    key={j}
                     className={`${barClassName} bar`}
                     width={x1.bandwidth()}
                     x={xScaleSet(bar.x) || xScaleSet(bar.x) === 0? (xScaleSet(bar.x) + x1.bandwidth() * i) : -10000}
