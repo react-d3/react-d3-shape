@@ -17,7 +17,7 @@ export default class Line extends Component {
   }
 
   static propTypes = {
-    pointAlign: PropTypes.oneOf('left', 'center', 'right')
+    pointAlign: PropTypes.oneOf(['left', 'center', 'right'])
   };
 
   static defaultProps = {
