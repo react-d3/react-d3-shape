@@ -52,7 +52,7 @@ export default class Bar extends Component {
     return (
       <g>
         {
-          dataset.data.map((bar) => {
+          dataset.data.map((bar, i) => {
             return (
               <rect 
                 className={`${barClassName} bar`}
@@ -64,6 +64,7 @@ export default class Bar extends Component {
                 style={Object.assign({}, dataset.style, bar._style)}
                 onMouseOut={that.triggerOut.bind(this, bar)}
                 onMouseOver={that.triggerOver.bind(this, bar)}
+                key={i}
                 />
             )
           })

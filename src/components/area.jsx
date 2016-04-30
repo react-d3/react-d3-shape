@@ -32,13 +32,14 @@ export default class Area extends Component {
     return (
       <g>
         {
-          dataset.map((area) => {
+          dataset.map((area, i) => {
             return (
               <path
                 className={`${areaClassName} area`}
                 fill={area.color}
                 d={that._setAxes(area.data)}
                 style={area.style}
+                key={i}
                 />
             )
           })
