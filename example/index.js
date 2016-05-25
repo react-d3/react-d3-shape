@@ -13,6 +13,7 @@ import BarStackHorizontal from './src/bar_stack_horizontal'
 import Donut from './src/donut'
 import Line from './src/line'
 import Pie from './src/pie'
+import MultiLineBrushChart from './src/multi_line_brush'
 import Scatter from './src/scatter'
 
 // Declarative route configuration (could also load this config lazily
@@ -34,7 +35,8 @@ ReactDOM.render((
       <Route path="donut" component={Donut}/>
       <Route path="line" component={Line}/>
       <Route path="pie" component={Pie}/>
-      <Route path="scatter" component={Scatter}/>    
+      <Route path="multi_line_brush" component={MultiLineBrushChart}/>
+      <Route path="scatter" component={Scatter}/>
     </Route>
   </Router>
 ), document.getElementById('root'))
