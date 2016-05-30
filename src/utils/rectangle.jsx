@@ -48,7 +48,7 @@ export default class Rect extends Component {
 			.attr("x", 0)
 			.attr("y", -5)
 			.attr("width", width - margins.left - margins.right)
-			.attr("height", height - margins.bottom - margins.top + 5)
+			.attr("height", height - margins.bottom - margins.top + 3)
 			.attr("class", styleClassName);
 
 

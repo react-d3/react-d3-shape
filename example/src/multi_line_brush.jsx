@@ -39,7 +39,8 @@ module.exports = React.createClass({
 			sliderChartWidth: 1400,
 			sliderChartHeight:130,
 			generalChartData: generalChartData,
-			sliderChartData: generalChartData
+			sliderChartData: generalChartData,
+			margins: {top: 40, right: 100, bottom: 40, left: 100}
 		}
 	},
 	onClick: function() {
@@ -53,11 +54,7 @@ module.exports = React.createClass({
 			}]: chartSeries
 		})
 	},
-	setNewDomain: function(axis, val) {
-		console.log("Axis : " + axis + " Value : " + val);
-		// you can render data or filter existing data or whatever based on brush values
-	},
-	setNewDomainForSlider: function(axis, val) {
+	handleNewDomain: function(axis, val) {
 		console.log("Axis : " + axis + " Value : " + val);
 		// you can render data or filter existing data or whatever based on brush values
 	},
@@ -71,11 +68,12 @@ module.exports = React.createClass({
 				height= {this.state.sliderChartHeight}
 				data= {this.state.generalChartData}
 				chartSeries= {this.state.series}
+				margins={this.state.margins}
 				xScale={xScale}
 				x= {x}
 				isBrushable={true}
 				showLegend={false}
-				setNewDomain={this.setNewDomainForSlider}
+				onBrushDomainChange={this.handleNewDomain}
 				keepBrushOn={true}
 				brushStyle={{"fill": "#DDD", "fill-opacity": ".75", "shape-rendering": "crispEdges"}}
 				yGridStyleClassName={"yGridStyleCls"}
@@ -90,7 +88,7 @@ module.exports = React.createClass({
 				xScale={xScale}
 				x= {x}
 				isBrushable={false}
-				setNewDomain={this.setNewDomain}
+				onBrushDomainChange={this.handleNewDomain}
 				keepBrushOn={false}
 				brushStyle={{"fill": "#DDD", "fill-opacity": ".75", "shape-rendering": "crispEdges"}}
 				noDataTitleText={"No Data"}

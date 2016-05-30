@@ -18,6 +18,7 @@ import {
 
 /*
 	Renders d3 brush and returns new x-axis values depending on brush movements.
+    This allows brush events to be dealt with at the React level so that every chart can have an attached brush
 */
 export default class Brush extends Component {
 
@@ -74,7 +75,7 @@ export default class Brush extends Component {
 			margins,
 			brushExtent, // used to set default brush drag area hightlighted
 			keepBrushOn, // if true the brush will be visible after mouse release and user can move it left/right. If not after mouse release it will disappear
-			setNewDomain, // callback method to which brush will pass the axis and new xDomain values on brush
+			onBrushDomainChange, // callback method to which brush will pass the axis and new xDomain values on brush
 			brushStyle  // user defined brush style or else use default
 		} = this.props;
 
@@ -90,7 +91,7 @@ export default class Brush extends Component {
 		brush = brush.on("brushend", () => {
 				var newDomain = brush.empty() ? xBrushScaleSet.domain() : brush.extent();
 			if (newDomain.length) {
-				setNewDomain("x", newDomain)
+				onBrushDomainChange("x", newDomain)
 				if (!keepBrushOn)
 					d3.select(ReactDOM.findDOMNode(this.refs.brushRect)).call(brush.clear());
 			}
@@ -115,6 +116,6 @@ export default class Brush extends Component {
 	}
 
 	render() {
-		return <g ref = "brushRect" className = "react-d3-basic__brush__rect"></g>
+		return (<g ref="brushRect" className="react-d3-basic__brush__rect"></g>);
 	}
 }
