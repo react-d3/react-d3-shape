@@ -5,25 +5,30 @@ import {
   Component,
 } from 'react';
 
-import {series} from '../utils/series';
+import { series } from '../utils/series';
 
 export default class Bar extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
   }
 
   static defaultProps = {
     onMouseOver: (d) => {},
     onMouseOut: (d) => {},
+    onClick: (d) => {},
     barClassName: 'react-d3-basic__bar'
   }
 
-  triggerOver(data , e) {
+  triggerOver(data, e) {
     this.props.onMouseOver(e, data)
   }
 
   triggerOut(data, e) {
     this.props.onMouseOut(e, data)
+  }
+
+  triggerClick(data, e) {
+    this.props.onClick(e, data);
   }
 
   _mkBar() {
@@ -36,16 +41,16 @@ export default class Bar extends Component {
       yScaleSet
     } = this.props;
 
-    const that = this
+    const that = this;
     var dataset = series(this.props)[0];
     var domain = yScaleSet.domain();
     var zeroBase;
 
     if (domain[0] * domain[1] < 0) {
       zeroBase = yScaleSet(0);
-    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] >= 0)){
+    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] >= 0)) {
       zeroBase = yScaleSet.range()[0];
-    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] < 0)){
+    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] < 0)) {
       zeroBase = yScaleSet.range()[1];
     }
 
@@ -54,7 +59,7 @@ export default class Bar extends Component {
         {
           dataset.data.map((bar, i) => {
             return (
-              <rect 
+              <rect
                 className={`${barClassName} bar`}
                 x={xScaleSet(bar.x) || xScaleSet(bar.x) === 0? xScaleSet(bar.x) : -10000}
                 y={bar.y < 0 ? zeroBase: yScaleSet(bar.y)}
@@ -64,6 +69,7 @@ export default class Bar extends Component {
                 style={Object.assign({}, dataset.style, bar._style)}
                 onMouseOut={that.triggerOut.bind(this, bar)}
                 onMouseOver={that.triggerOver.bind(this, bar)}
+                onClick={that.triggerClick.bind(this, bar)}
                 key={i}
                 />
             )
