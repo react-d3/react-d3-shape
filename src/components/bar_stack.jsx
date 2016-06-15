@@ -62,7 +62,7 @@ export default class BarStack extends Component {
           _setStack(dataset).map((barGroup, i) => {
             return (
               <g
-                key={j}
+                key={i}
                 className="barGroup"
                 fill={barGroup.color}
                 style={barGroup.style}>
