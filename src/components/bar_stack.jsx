@@ -59,14 +59,15 @@ export default class BarStack extends Component {
     return (
       <g>
         {
-          _setStack(dataset).map((barGroup) => {
+          _setStack(dataset).map((barGroup, i) => {
             return (
               <g
+                key={j}
                 className="barGroup"
                 fill={barGroup.color}
                 style={barGroup.style}>
                 {
-                  barGroup.data.map((bar, i) => {
+                  barGroup.data.map((bar, j) => {
                     return (
                       <rect
                         className={`${barClassName} bar`}
@@ -77,7 +78,7 @@ export default class BarStack extends Component {
                         onMouseOut={that.triggerOut.bind(this, bar)}
                         onMouseOver={that.triggerOver.bind(this, bar)}
                         onClick = { that.triggerClick.bind(this, bar) }
-                        key={i}
+                        key={j}
                         />
                     )
                   })
