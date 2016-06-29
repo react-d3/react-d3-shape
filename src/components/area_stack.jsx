@@ -6,6 +6,7 @@ import {
   PropTypes,
 } from 'react';
 
+import d3 from 'd3';
 import D3Shape from 'd3-shape'
 import CommonProps from '../commonProps';
 import {series} from '../utils/series';
