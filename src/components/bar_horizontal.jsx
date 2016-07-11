@@ -5,10 +5,10 @@ import {
   Component,
 } from 'react';
 
-import {series} from '../utils/series';
+import { series } from '../utils/series';
 
 export default class BarHorizontal extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
   }
 
@@ -18,7 +18,7 @@ export default class BarHorizontal extends Component {
     barClassName: 'react-d3-basic__bar_horizontal'
   }
 
-  triggerOver(data , e) {
+  triggerOver(data, e) {
     this.props.onMouseOver(e, data)
   }
 
@@ -43,16 +43,16 @@ export default class BarHorizontal extends Component {
 
     if (domain[0] * domain[1] < 0) {
       zeroBase = xScaleSet(0);
-    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] >= 0)){
+    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] >= 0)) {
       zeroBase = xScaleSet.range()[0];
-    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] < 0)){
+    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] < 0)) {
       zeroBase = xScaleSet.range()[1];
     }
 
     return (
       <g>
         {
-          dataset.data.map((bar) => {
+          dataset.data.map((bar, i) => {
             return (
               <rect
                 className= {`${barClassName} bar`}
@@ -64,6 +64,7 @@ export default class BarHorizontal extends Component {
                 style= {Object.assign({}, dataset.style, bar._style)}
                 onMouseOut={that.triggerOut.bind(this, bar)}
                 onMouseOver={that.triggerOver.bind(this, bar)}
+                key={i}
                 />
             )
           })

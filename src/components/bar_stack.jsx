@@ -6,10 +6,10 @@ import {
 } from 'react';
 
 import d3 from 'd3';
-import {series} from '../utils/series';
+import { series } from '../utils/series';
 
 export default class BarStack extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
   }
 
@@ -20,14 +20,14 @@ export default class BarStack extends Component {
     barClassName: 'react-d3-basic__bar_stack'
   }
 
-  triggerOver(data , e) {
+  triggerOver(data, e) {
     this.props.onMouseOver(e, data)
   }
 
   triggerOut(data, e) {
     this.props.onMouseOut(e, data)
   }
-  
+
   triggerClick(data, e) {
     this.props.onClick(e, data);
   }
@@ -41,7 +41,7 @@ export default class BarStack extends Component {
       yScaleSet
     } = this.props;
 
-    const that = this
+    const that = this;
     var dataset = series(this.props);
     const _setStack = this._setStack();
 
@@ -50,23 +50,24 @@ export default class BarStack extends Component {
 
     if (domain[0] * domain[1] < 0) {
       zeroBase = yScaleSet(0);
-    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] >= 0)){
+    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] >= 0)) {
       zeroBase = yScaleSet.range()[0];
-    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] < 0)){
+    } else if (((domain[0] * domain[1]) >= 0) && (domain[0] < 0)) {
       zeroBase = yScaleSet.range()[1];
     }
 
     return (
       <g>
         {
-          _setStack(dataset).map((barGroup) => {
+          _setStack(dataset).map((barGroup, i) => {
             return (
-              <g 
+              <g
+                key={i}
                 className="barGroup"
                 fill={barGroup.color}
                 style={barGroup.style}>
                 {
-                  barGroup.data.map((bar) => {
+                  barGroup.data.map((bar, j) => {
                     return (
                       <rect
                         className={`${barClassName} bar`}
@@ -76,7 +77,8 @@ export default class BarStack extends Component {
                         height={Math.abs(yScaleSet(bar.y) - yScaleSet(0))}
                         onMouseOut={that.triggerOut.bind(this, bar)}
                         onMouseOver={that.triggerOver.bind(this, bar)}
-                        onClick={that.triggerClick.bind(this, bar)}
+                        onClick = { that.triggerClick.bind(this, bar) }
+                        key={j}
                         />
                     )
                   })
@@ -89,8 +91,8 @@ export default class BarStack extends Component {
     )
   }
 
-  _setStack () {
-    const{
+  _setStack() {
+    const {
       chartSeries
     } = this.props;
 
@@ -98,13 +100,13 @@ export default class BarStack extends Component {
       // baseline for positive and negative bars respectively.
       var currentXOffsets = [];
       var currentXIndex = 0;
-      return function(d, y0, y){
+      return function(d, y0, y) {
 
-        if(currentXIndex++ % len === 0){
+        if (currentXIndex++ % len === 0) {
           currentXOffsets = [0, 0];
         }
 
-        if(y >= 0) {
+        if (y >= 0) {
           d.y0 = currentXOffsets[1];
           d.y = y;
           currentXOffsets[1] += y;
@@ -116,7 +118,9 @@ export default class BarStack extends Component {
       }
     }
     return d3.layout.stack()
-      .values((d) => { return d.data; })
+      .values((d) => {
+        return d.data;
+      })
       .out(buildOut(chartSeries.length));
 
   }
