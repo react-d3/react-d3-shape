@@ -77,8 +77,8 @@ module.exports = React.createClass({
 				keepBrushOn={true}
 				brushStyle={{"fill": "#DDD", "fill-opacity": ".75", "shape-rendering": "crispEdges"}}
 				yGridStyleClassName={"yGridStyleCls"}
-				chartClassName={"lineChartStyleCls"}
 				yAxisClassName={"timeSliderYAxis"}
+				yTicks={[0]}
 			/>
 			<MultiLineBrushChart
 				width= {this.state.width}
