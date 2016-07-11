@@ -6,7 +6,7 @@ import {
   Component,
 } from 'react';
 
-import D3 from 'd3';
+import D3Shape from 'd3-shape';
 import CommonProps from '../commonProps';
 import {series} from '../utils/series';
 
@@ -51,12 +51,10 @@ export default class Line extends Component {
   _setAxes (data) {
     const {
       xScaleSet,
-      yScaleSet,
-      interpolate
+      yScaleSet
     } = this.props;
 
-    var line =  D3.svg.line()
-      .interpolate(interpolate)
+    var line =  D3Shape.line()
       .x((d) => { return xScaleSet(d.x) })
       .y((d) => { return yScaleSet(d.y) })
 
