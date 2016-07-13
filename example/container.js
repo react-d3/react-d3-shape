@@ -34,6 +34,7 @@ export default class ContainerExample extends Component {
 	          <NavItem eventKey="line" href="/example/line">Line</NavItem>
 	          <NavItem eventKey="pie" href="/example/pie">Pie</NavItem>
 	          <NavItem eventKey="scatter" href="/example/scatter">Scatter</NavItem>
+	          <NavItem eventKey="multi_line_brush" href="/example/multi_line_brush">Brush Chart</NavItem>
 	        </Nav>
 	      </div>
 				{this.props.children}

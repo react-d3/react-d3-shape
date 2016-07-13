@@ -14,7 +14,8 @@ export default {
   xScale: 'linear',
   yScale: 'linear',
   showXGrid: true,
-  showYGrid: true
+  showYGrid: true,
+  showLegend: true
 }
 
 export const pieProps = {

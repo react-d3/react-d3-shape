@@ -6,7 +6,7 @@ import {
   Component,
 } from 'react';
 
-import D3Shape from 'd3-shape'
+import D3Shape from 'd3-shape';
 import CommonProps from '../commonProps';
 import {series} from '../utils/series';
 
