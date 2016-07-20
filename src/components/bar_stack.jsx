@@ -38,7 +38,8 @@ export default class BarStack extends Component {
       margins,
       barClassName,
       xScaleSet,
-      yScaleSet
+      yScaleSet,
+      barWidth
     } = this.props;
 
     const that = this;
@@ -47,6 +48,7 @@ export default class BarStack extends Component {
 
     var domain = yScaleSet.domain();
     var zeroBase;
+    var barBandWidth;
 
     if (domain[0] * domain[1] < 0) {
       zeroBase = yScaleSet(0);
@@ -54,6 +56,14 @@ export default class BarStack extends Component {
       zeroBase = yScaleSet.range()[0];
     } else if (((domain[0] * domain[1]) >= 0) && (domain[0] < 0)) {
       zeroBase = yScaleSet.range()[1];
+    }
+
+    // user defined barwidth
+    if(barWidth) {
+      barBandWidth = barWidth;
+    }
+    else {
+      barBandWidth = xScaleSet.bandwidth();
     }
 
     return (
@@ -71,7 +81,7 @@ export default class BarStack extends Component {
                     return (
                       <rect
                         className={`${barClassName} bar`}
-                        width={xScaleSet.bandwidth()}
+                        width={barBandWidth}
                         x={xScaleSet(bar.x) || xScaleSet(bar.x) === 0? xScaleSet(bar.x): -10000}
                         y={yScaleSet(bar.y0 + bar.y)}
                         height={Math.abs(yScaleSet(bar.y) - yScaleSet(0))}

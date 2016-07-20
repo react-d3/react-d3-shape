@@ -33,7 +33,8 @@ export default class BarStackHorizontal extends Component {
       margins,
       barClassName,
       xScaleSet,
-      yScaleSet
+      yScaleSet,
+      barWidth
     } = this.props;
 
     const that = this
@@ -46,6 +47,7 @@ export default class BarStackHorizontal extends Component {
 
     var domain = xScaleSet.domain();
     var zeroBase;
+    var barBandWidth;
 
     if (domain[0] * domain[1] < 0) {
       zeroBase = xScaleSet(0);
@@ -53,6 +55,14 @@ export default class BarStackHorizontal extends Component {
       zeroBase = xScaleSet.range()[0];
     } else if (((domain[0] * domain[1]) >= 0) && (domain[0] < 0)) {
       zeroBase = xScaleSet.range()[1];
+    }
+
+    // user defined barwidth
+    if(barWidth) {
+      barBandWidth = barWidth;
+    }
+    else {
+      barBandWidth = yScaleSet.bandwidth();
     }
 
     return (
@@ -71,7 +81,7 @@ export default class BarStackHorizontal extends Component {
                     return(
                       <rect
                         className={`${barClassName} bar`}
-                        height={yScaleSet.bandwidth()}
+                        height={barBandWidth}
                         y={yScaleSet(bar.y) || yScaleSet(bar.y) === 0? yScaleSet(bar.y): -10000}
                         x={xScaleSet(bar.x0)}
                         width={Math.abs(xScaleSet(bar.x) - xScaleSet(0))}

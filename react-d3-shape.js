@@ -19646,6 +19646,7 @@ var ReactD3Shape =
 	      var barClassName = _props.barClassName;
 	      var xScaleSet = _props.xScaleSet;
 	      var yScaleSet = _props.yScaleSet;
+	      var barWidth = _props.barWidth;
 
 
 	      var that = this;
@@ -19654,6 +19655,7 @@ var ReactD3Shape =
 
 	      var domain = yScaleSet.domain();
 	      var zeroBase;
+	      var barBandWidth;
 
 	      if (domain[0] * domain[1] < 0) {
 	        zeroBase = yScaleSet(0);
@@ -19661,6 +19663,13 @@ var ReactD3Shape =
 	        zeroBase = yScaleSet.range()[0];
 	      } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
 	        zeroBase = yScaleSet.range()[1];
+	      }
+
+	      // user defined barwidth
+	      if (barWidth) {
+	        barBandWidth = barWidth;
+	      } else {
+	        barBandWidth = xScaleSet.bandwidth();
 	      }
 
 	      return _react2.default.createElement(
@@ -19677,7 +19686,7 @@ var ReactD3Shape =
 	            barGroup.data.map(function (bar, j) {
 	              return _react2.default.createElement('rect', {
 	                className: barClassName + ' bar',
-	                width: xScaleSet.bandwidth(),
+	                width: barBandWidth,
 	                x: xScaleSet(bar.x) || xScaleSet(bar.x) === 0 ? xScaleSet(bar.x) : -10000,
 	                y: yScaleSet(bar.y0 + bar.y),
 	                height: Math.abs(yScaleSet(bar.y) - yScaleSet(0)),
@@ -19806,6 +19815,7 @@ var ReactD3Shape =
 	      var barClassName = _props.barClassName;
 	      var xScaleSet = _props.xScaleSet;
 	      var yScaleSet = _props.yScaleSet;
+	      var barWidth = _props.barWidth;
 
 
 	      var that = this;
@@ -19817,6 +19827,7 @@ var ReactD3Shape =
 
 	      var domain = xScaleSet.domain();
 	      var zeroBase;
+	      var barBandWidth;
 
 	      if (domain[0] * domain[1] < 0) {
 	        zeroBase = xScaleSet(0);
@@ -19824,6 +19835,13 @@ var ReactD3Shape =
 	        zeroBase = xScaleSet.range()[0];
 	      } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
 	        zeroBase = xScaleSet.range()[1];
+	      }
+
+	      // user defined barwidth
+	      if (barWidth) {
+	        barBandWidth = barWidth;
+	      } else {
+	        barBandWidth = yScaleSet.bandwidth();
 	      }
 
 	      return _react2.default.createElement(
@@ -19841,7 +19859,7 @@ var ReactD3Shape =
 	            barGroup.data.map(function (bar, j) {
 	              return _react2.default.createElement('rect', {
 	                className: barClassName + ' bar',
-	                height: yScaleSet.bandwidth(),
+	                height: barBandWidth,
 	                y: yScaleSet(bar.y) || yScaleSet(bar.y) === 0 ? yScaleSet(bar.y) : -10000,
 	                x: xScaleSet(bar.x0),
 	                width: Math.abs(xScaleSet(bar.x) - xScaleSet(0)),
@@ -21516,6 +21534,7 @@ var ReactD3Shape =
 	      var barClassName = _props.barClassName;
 	      var xScaleSet = _props.xScaleSet;
 	      var yScaleSet = _props.yScaleSet;
+	      var barWidth = _props.barWidth;
 
 	      var that = this;
 	      var dataset = (0, _series.series)(this.props);
@@ -21523,6 +21542,7 @@ var ReactD3Shape =
 
 	      var domain = yScaleSet.domain();
 	      var zeroBase;
+	      var barBandWidth;
 
 	      if (domain[0] * domain[1] < 0) {
 	        zeroBase = yScaleSet(0);
@@ -21530,6 +21550,13 @@ var ReactD3Shape =
 	        zeroBase = yScaleSet.range()[0];
 	      } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
 	        zeroBase = yScaleSet.range()[1];
+	      }
+
+	      // user defined barwidth
+	      if (barWidth) {
+	        barBandWidth = barWidth;
+	      } else {
+	        barBandWidth = xScaleSet.bandwidth();
 	      }
 
 	      return _react2.default.createElement('g', null, _setStack(dataset).map(function (barGroup, i) {
@@ -21540,7 +21567,7 @@ var ReactD3Shape =
 	          style: barGroup.style }, barGroup.data.map(function (bar, j) {
 	          return _react2.default.createElement('rect', {
 	            className: barClassName + ' bar',
-	            width: xScaleSet.bandwidth(),
+	            width: barBandWidth,
 	            x: xScaleSet(bar.x) || xScaleSet(bar.x) === 0 ? xScaleSet(bar.x) : -10000,
 	            y: yScaleSet(bar.y0 + bar.y),
 	            height: Math.abs(yScaleSet(bar.y) - yScaleSet(0)),
@@ -21686,6 +21713,7 @@ var ReactD3Shape =
 	      var barClassName = _props.barClassName;
 	      var xScaleSet = _props.xScaleSet;
 	      var yScaleSet = _props.yScaleSet;
+	      var barWidth = _props.barWidth;
 
 	      var that = this;
 	      var dataset = (0, _series.series)(this.props, true);
@@ -21696,6 +21724,7 @@ var ReactD3Shape =
 
 	      var domain = xScaleSet.domain();
 	      var zeroBase;
+	      var barBandWidth;
 
 	      if (domain[0] * domain[1] < 0) {
 	        zeroBase = xScaleSet(0);
@@ -21703,6 +21732,13 @@ var ReactD3Shape =
 	        zeroBase = xScaleSet.range()[0];
 	      } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
 	        zeroBase = xScaleSet.range()[1];
+	      }
+
+	      // user defined barwidth
+	      if (barWidth) {
+	        barBandWidth = barWidth;
+	      } else {
+	        barBandWidth = yScaleSet.bandwidth();
 	      }
 
 	      return _react2.default.createElement('g', null, _setStack(dataset).map(function (barGroup, i) {
@@ -21714,7 +21750,7 @@ var ReactD3Shape =
 	        }, barGroup.data.map(function (bar, j) {
 	          return _react2.default.createElement('rect', {
 	            className: barClassName + ' bar',
-	            height: yScaleSet.bandwidth(),
+	            height: barBandWidth,
 	            y: yScaleSet(bar.y) || yScaleSet(bar.y) === 0 ? yScaleSet(bar.y) : -10000,
 	            x: xScaleSet(bar.x0),
 	            width: Math.abs(xScaleSet(bar.x) - xScaleSet(0)),
