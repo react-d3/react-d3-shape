@@ -96,7 +96,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _line = __webpack_require__(84);
+	var _line = __webpack_require__(61);
 
 	Object.defineProperty(exports, 'Line', {
 	  enumerable: true,
@@ -105,7 +105,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _area = __webpack_require__(85);
+	var _area = __webpack_require__(64);
 
 	Object.defineProperty(exports, 'Area', {
 	  enumerable: true,
@@ -114,7 +114,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _area_stack = __webpack_require__(86);
+	var _area_stack = __webpack_require__(65);
 
 	Object.defineProperty(exports, 'AreaStack', {
 	  enumerable: true,
@@ -123,7 +123,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _bar = __webpack_require__(87);
+	var _bar = __webpack_require__(66);
 
 	Object.defineProperty(exports, 'Bar', {
 	  enumerable: true,
@@ -132,7 +132,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _bar_horizontal = __webpack_require__(88);
+	var _bar_horizontal = __webpack_require__(67);
 
 	Object.defineProperty(exports, 'BarHorizontal', {
 	  enumerable: true,
@@ -141,7 +141,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _bar_group = __webpack_require__(89);
+	var _bar_group = __webpack_require__(68);
 
 	Object.defineProperty(exports, 'BarGroup', {
 	  enumerable: true,
@@ -150,7 +150,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _bar_group_horizontal = __webpack_require__(90);
+	var _bar_group_horizontal = __webpack_require__(69);
 
 	Object.defineProperty(exports, 'BarGroupHorizontal', {
 	  enumerable: true,
@@ -159,7 +159,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _bar_stack = __webpack_require__(91);
+	var _bar_stack = __webpack_require__(70);
 
 	Object.defineProperty(exports, 'BarStack', {
 	  enumerable: true,
@@ -168,7 +168,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _bar_stack_horizontal = __webpack_require__(92);
+	var _bar_stack_horizontal = __webpack_require__(71);
 
 	Object.defineProperty(exports, 'BarStackHorizontal', {
 	  enumerable: true,
@@ -177,7 +177,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _pie = __webpack_require__(93);
+	var _pie = __webpack_require__(72);
 
 	Object.defineProperty(exports, 'Pie', {
 	  enumerable: true,
@@ -186,7 +186,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _scatter = __webpack_require__(94);
+	var _scatter = __webpack_require__(73);
 
 	Object.defineProperty(exports, 'Scatter', {
 	  enumerable: true,
@@ -195,7 +195,7 @@ var ReactD3Shape =
 	  }
 	});
 
-	var _multi_line_brush = __webpack_require__(95);
+	var _multi_line_brush = __webpack_require__(74);
 
 	Object.defineProperty(exports, 'MultiLineBrushChart', {
 	  enumerable: true,
@@ -15722,6 +15722,16 @@ var ReactD3Shape =
 		};
 	}();
 
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactD3Core = __webpack_require__(5);
+
+	var _chart = __webpack_require__(3);
+
+	var _chart2 = _interopRequireDefault(_chart);
+
 	var _straightLine = __webpack_require__(60);
 
 	var _straightLine2 = _interopRequireDefault(_straightLine);
@@ -15748,14 +15758,6 @@ var ReactD3Shape =
 		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
 
-	var React = __webpack_require__(4);
-	var Component = __webpack_require__(4).Component;
-	var Chart = __webpack_require__(61).Chart;
-	var Xgrid = __webpack_require__(5).Xgrid;
-	var Ygrid = __webpack_require__(5).Ygrid;
-	var Xaxis = __webpack_require__(5).Xaxis;
-	var Yaxis = __webpack_require__(5).Yaxis;
-
 	/*
 		Renders blank chart.
 		User can provide any text to be diplayed on blank chart.
@@ -15773,7 +15775,7 @@ var ReactD3Shape =
 		_createClass(BlankChart, [{
 			key: 'renderNoDataTitle',
 			value: function renderNoDataTitle(x, y, textValue) {
-				return React.createElement('g', null, React.createElement('text', { className: 'chartNoData', x: x, y: y }, textValue));
+				return _react2.default.createElement('g', null, _react2.default.createElement('text', { className: 'chartNoData', x: x, y: y }, textValue));
 			}
 		}, {
 			key: 'render',
@@ -15791,17 +15793,17 @@ var ReactD3Shape =
 
 				var xgrid, ygrid, textXMargin, textYMargin;
 
-				if (showXGrid) xgrid = React.createElement(Xgrid, this.props);
-				if (showYGrid) ygrid = React.createElement(Ygrid, this.props);
+				if (showXGrid) xgrid = _react2.default.createElement(_reactD3Core.Xgrid, this.props);
+				if (showYGrid) ygrid = _react2.default.createElement(_reactD3Core.Ygrid, this.props);
 				textXMargin = width / 2 - margins.right;
 				textYMargin = height / 2 - margins.bottom;
 
-				return React.createElement(Chart, _extends({ width: width, height: height }, this.props), React.createElement(_straightLine2.default, _extends({ x1: 0 - 20, y1: 0, x2: width - margins.right, y2: 0 }, this.props)), xgrid, ygrid, React.createElement(Xaxis, this.props), React.createElement(Yaxis, this.props), React.createElement(_straightLine2.default, _extends({ x1: 0 - 20, y1: height - margins.top - margins.bottom, x2: width - 100, y2: height - margins.top - margins.bottom }, this.props)), noDataTitleText ? this.renderNoDataTitle(textXMargin, textYMargin, noDataTitleText) : null);
+				return _react2.default.createElement(_chart2.default, _extends({ width: width, height: height }, this.props), _react2.default.createElement(_straightLine2.default, _extends({ x1: 0 - 20, y1: 0, x2: width - margins.right, y2: 0 }, this.props)), xgrid, ygrid, _react2.default.createElement(_reactD3Core.Xaxis, this.props), _react2.default.createElement(_reactD3Core.Yaxis, this.props), _react2.default.createElement(_straightLine2.default, _extends({ x1: 0 - 20, y1: height - margins.top - margins.bottom, x2: width - 100, y2: height - margins.top - margins.bottom }, this.props)), noDataTitleText ? this.renderNoDataTitle(textXMargin, textYMargin, noDataTitleText) : null);
 			}
 		}]);
 
 		return BlankChart;
-	}(Component);
+	}(_react.Component);
 
 	BlankChart.defaultProps = {
 		showXGrid: true,
@@ -15925,929 +15927,69 @@ var ReactD3Shape =
 /* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _series = __webpack_require__(62);
-
-	Object.defineProperty(exports, 'series', {
-	  enumerable: true,
-	  get: function get() {
-	    return _series.series;
-	  }
-	});
-
-	var _chart = __webpack_require__(63);
-
-	Object.defineProperty(exports, 'Chart', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_chart).default;
-	  }
-	});
-
-	var _chartpie = __webpack_require__(65);
-
-	Object.defineProperty(exports, 'ChartPie', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_chartpie).default;
-	  }
-	});
-
-	var _brush = __webpack_require__(66);
-
-	Object.defineProperty(exports, 'Brush', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_brush).default;
-	  }
-	});
-
-	var _blank_chart = __webpack_require__(67);
-
-	Object.defineProperty(exports, 'BlankChart', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_blank_chart).default;
-	  }
-	});
-
-	var _line = __webpack_require__(69);
-
-	Object.defineProperty(exports, 'Line', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_line).default;
-	  }
-	});
-
-	var _area = __webpack_require__(72);
-
-	Object.defineProperty(exports, 'Area', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_area).default;
-	  }
-	});
-
-	var _area_stack = __webpack_require__(73);
-
-	Object.defineProperty(exports, 'AreaStack', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_area_stack).default;
-	  }
-	});
-
-	var _bar = __webpack_require__(74);
-
-	Object.defineProperty(exports, 'Bar', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_bar).default;
-	  }
-	});
-
-	var _bar_horizontal = __webpack_require__(75);
-
-	Object.defineProperty(exports, 'BarHorizontal', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_bar_horizontal).default;
-	  }
-	});
-
-	var _bar_group = __webpack_require__(76);
-
-	Object.defineProperty(exports, 'BarGroup', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_bar_group).default;
-	  }
-	});
-
-	var _bar_group_horizontal = __webpack_require__(77);
-
-	Object.defineProperty(exports, 'BarGroupHorizontal', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_bar_group_horizontal).default;
-	  }
-	});
-
-	var _bar_stack = __webpack_require__(78);
-
-	Object.defineProperty(exports, 'BarStack', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_bar_stack).default;
-	  }
-	});
-
-	var _bar_stack_horizontal = __webpack_require__(79);
-
-	Object.defineProperty(exports, 'BarStackHorizontal', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_bar_stack_horizontal).default;
-	  }
-	});
-
-	var _pie = __webpack_require__(80);
-
-	Object.defineProperty(exports, 'Pie', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_pie).default;
-	  }
-	});
-
-	var _scatter = __webpack_require__(81);
-
-	Object.defineProperty(exports, 'Scatter', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_scatter).default;
-	  }
-	});
-
-	var _multi_line_brush = __webpack_require__(82);
-
-	Object.defineProperty(exports, 'MultiLineBrushChart', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_multi_line_brush).default;
-	  }
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
-
 	"use strict";
 
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.series = series;
 
-	var _d = __webpack_require__(2);
-
-	var _d2 = _interopRequireDefault(_d);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function series(props, horizontal) {
-	  var data = props.data;
-	  var chartSeries = props.chartSeries;
-	  var x = props.x;
-	  var y = props.y;
-	  var categoricalColors = props.categoricalColors;
-
-
-	  categoricalColors = categoricalColors || _d2.default.scale.category10();
-
-	  var chartSeriesData = chartSeries.map(function (f, i) {
-
-	    // set a color if not set
-	    f.color = f.color || categoricalColors(i);
-
-	    // set name if not set
-	    f.name = f.name || f.field;
-
-	    // mapping throught data set x, y data
-	    var mapping = data.map(function (d) {
-	      if (!d._style) d._style = {};
-
-	      if (!horizontal) {
-	        return {
-	          x: x(d),
-	          y: y(d[f.field]),
-	          color: f.color,
-	          name: f.name,
-	          field: f.field,
-	          _style: d._style
-	        };
-	      } else {
-	        return {
-	          y: y(d),
-	          x: x(d[f.field]),
-	          color: f.color,
-	          name: f.name,
-	          field: f.field,
-	          _style: d._style
-	        };
+	var _extends = Object.assign || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
 	      }
-	    });
-
-	    return Object.assign(f, { data: mapping });
-	  });
-
-	  return chartSeriesData;
-	}
-
-/***/ },
-/* 63 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactD3Core = __webpack_require__(5);
-
-	var _commonProps = __webpack_require__(64);
-
-	var _commonProps2 = _interopRequireDefault(_commonProps);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ChartSvg = function (_Component) {
-	  _inherits(ChartSvg, _Component);
-
-	  function ChartSvg(props) {
-	    _classCallCheck(this, ChartSvg);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartSvg).call(this, props));
-	  }
-
-	  _createClass(ChartSvg, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props;
-	      var horizontal = _props.horizontal;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var xScale = _props.xScale;
-	      var yScale = _props.yScale;
-	      var xRange = _props.xRange;
-	      var yRange = _props.yRange;
-	      var xDomain = _props.xDomain;
-	      var yDomain = _props.yDomain;
-	      var xTicks = _props.xTicks;
-	      var yTicks = _props.yTicks;
-	      var xTickFormat = _props.xTickFormat;
-	      var yTickFormat = _props.yTickFormat;
-	      var xBandPaddingInner = _props.xBandPaddingInner;
-	      var xBandPaddingOuter = _props.xBandPaddingOuter;
-	      var yBandPaddingInner = _props.yBandPaddingInner;
-	      var yBandPaddingOuter = _props.yBandPaddingOuter;
-	      var xLabel = _props.xLabel;
-	      var yLabel = _props.yLabel;
-	      var stack = _props.stack;
-	      var data = _props.data;
-	      var svgClassName = _props.svgClassName;
-	      var id = _props.id;
-	      var x = _props.x;
-	      var y = _props.y;
-
-
-	      var xRange = xRange || [0, width - margins.left - margins.right];
-	      var yRange = yRange || [height - margins.top - margins.bottom, 0];
-	      var xDomain = xDomain || (0, _reactD3Core.xDomainCount)(this.props, stack, horizontal);
-	      var yDomain = yDomain || (0, _reactD3Core.yDomainCount)(this.props, stack, horizontal);
-
-	      if (xScale === 'ordinal') xScale = 'band';
-
-	      if (yScale === 'ordinal') yScale = 'band';
-
-	      var newXScale = {
-	        scale: xScale,
-	        range: xRange,
-	        domain: xDomain,
-	        bandPaddingInner: xBandPaddingInner,
-	        bandPaddingOuter: xBandPaddingOuter
-	      };
-
-	      var xScaleSet = (0, _reactD3Core.scale)(newXScale);
-
-	      var newYScale = {
-	        scale: yScale,
-	        range: yRange,
-	        domain: yDomain,
-	        bandPaddingInner: yBandPaddingInner,
-	        bandPaddingOuter: yBandPaddingOuter
-	      };
-
-	      var yScaleSet = (0, _reactD3Core.scale)(newYScale);
-
-	      var children = _react2.default.Children.map(this.props.children, function (el) {
-	        if (el) {
-	          return _react2.default.cloneElement(el, {
-	            height: height,
-	            width: width,
-	            margins: margins,
-	            xScaleSet: xScaleSet,
-	            yScaleSet: yScaleSet,
-	            xDomain: xDomain,
-	            yDomain: yDomain,
-	            xRange: xRange,
-	            yRange: yRange,
-	            xBandPaddingInner: xBandPaddingInner,
-	            xBandPaddingOuter: xBandPaddingOuter,
-	            yBandPaddingInner: yBandPaddingInner,
-	            yBandPaddingOuter: yBandPaddingOuter,
-	            xScale: xScale,
-	            yScale: yScale,
-	            xTickFormat: xTickFormat,
-	            yTickFormat: yTickFormat,
-	            xTicks: xTicks,
-	            yTicks: yTicks,
-	            xLabel: xLabel,
-	            yLabel: yLabel,
-	            data: data,
-	            x: x,
-	            y: y
-	          });
-	        } else {
-	          return null;
-	        }
-	      });
-
-	      var t = 'translate(' + margins.left + ', ' + margins.top + ')';
-
-	      return _react2.default.createElement(
-	        'svg',
-	        {
-	          height: height,
-	          width: width,
-	          className: svgClassName,
-	          id: id,
-	          ref: 'svgContainer'
-	        },
-	        _react2.default.createElement(
-	          'g',
-	          {
-	            transform: t
-	          },
-	          children
-	        )
-	      );
 	    }
-	  }]);
-
-	  return ChartSvg;
-	}(_react.Component);
-
-	ChartSvg.defaultProps = _extends({
-	  svgClassName: 'react-d3-core__container_svg'
-	}, _commonProps2.default);
-	ChartSvg.propTypes = {
-	  id: _react.PropTypes.string,
-	  width: _react.PropTypes.number.isRequired,
-	  height: _react.PropTypes.number.isRequired,
-	  margins: _react.PropTypes.object.isRequired,
-	  svgClassName: _react.PropTypes.string.isRequired
-	};
-	exports.default = ChartSvg;
-
-/***/ },
-/* 64 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.pieProps = undefined;
-
-	var _d3Scale = __webpack_require__(48);
-
-	var _d3Scale2 = _interopRequireDefault(_d3Scale);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var width = 960;
-	var height = 500;
-	var margins = { top: 80, right: 100, bottom: 80, left: 100 };
-
-	exports.default = {
-	  width: width,
-	  height: height,
-	  margins: margins,
-	  y: function y(d) {
-	    return +d;
-	  },
-	  xScale: 'linear',
-	  yScale: 'linear',
-	  showXGrid: true,
-	  showYGrid: true,
-	  showLegend: true
-	};
-	var pieProps = exports.pieProps = {
-	  width: width,
-	  height: height,
-	  margins: margins,
-	  innerRadius: 0,
-	  categoricalColors: _d3Scale2.default.scaleCategory10(),
-	  pieSort: function pieSort() {},
-	  pieTextShow: true
+	  }return target;
 	};
 
-/***/ },
-/* 65 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactD3Core = __webpack_require__(5);
-
-	var _commonProps = __webpack_require__(64);
-
-	var _commonProps2 = _interopRequireDefault(_commonProps);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ChartSvg = function (_Component) {
-	  _inherits(ChartSvg, _Component);
-
-	  function ChartSvg(props) {
-	    _classCallCheck(this, ChartSvg);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartSvg).call(this, props));
-	  }
-
-	  _createClass(ChartSvg, [{
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-
-	      var _props = this.props;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var data = _props.data;
-	      var svgClassName = _props.svgClassName;
-	      var id = _props.id;
-	      var name = _props.name;
-	      var value = _props.value;
-
-
-	      var children = _react2.default.Children.map(this.props.children, function (el) {
-	        if (el) return _react2.default.cloneElement(el, _this2.props);else return null;
-	      });
-
-	      var t = 'translate(' + margins.left + ', ' + margins.top + ')';
-
-	      return _react2.default.createElement(
-	        'svg',
-	        {
-	          height: height,
-	          width: width,
-	          className: svgClassName,
-	          id: id,
-	          ref: 'svgContainer'
-	        },
-	        _react2.default.createElement(
-	          'g',
-	          {
-	            transform: t
-	          },
-	          children
-	        )
-	      );
+	var _createClass = function () {
+	  function defineProperties(target, props) {
+	    for (var i = 0; i < props.length; i++) {
+	      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
 	    }
-	  }]);
-
-	  return ChartSvg;
-	}(_react.Component);
-
-	ChartSvg.defaultProps = _extends({
-	  svgClassName: 'react-d3-core__container_svg'
-	}, _commonProps2.default);
-	ChartSvg.propTypes = {
-	  id: _react.PropTypes.string,
-	  width: _react.PropTypes.number.isRequired,
-	  height: _react.PropTypes.number.isRequired,
-	  margins: _react.PropTypes.object.isRequired,
-	  svgClassName: _react.PropTypes.string.isRequired
-	};
-	exports.default = ChartSvg;
-
-/***/ },
-/* 66 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(d3) {"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	  }return function (Constructor, protoProps, staticProps) {
+	    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	  };
+	}();
 
 	var _react = __webpack_require__(4);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _commonProps = __webpack_require__(64);
-
-	var _commonProps2 = _interopRequireDefault(_commonProps);
-
-	var _reactD3Core = __webpack_require__(5);
-
-	var _reactDom = __webpack_require__(58);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	/*
-		Renders d3 brush and returns new x-axis values depending on brush movements.
-	    This allows brush events to be dealt with at the React level so that every chart can have an attached brush
-	*/
-
-	var Brush = function (_Component) {
-		_inherits(Brush, _Component);
-
-		function Brush(props) {
-			_classCallCheck(this, Brush);
-
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Brush).call(this, props));
-
-			_this.state = {
-				xBrushScaleSet: _this._mkXScale(props)
-			};
-			return _this;
-		}
-
-		_createClass(Brush, [{
-			key: '_mkXScale',
-			value: function _mkXScale(props) {
-				var xScale = props.xScale;
-				var xRange = props.xRange;
-				var xDomain = props.xDomain;
-				var xRangeRoundBands = props.xRangeRoundBands;
-
-
-				var newXScale = {
-					scale: xScale,
-					range: xRange,
-					domain: xDomain,
-					rangeRoundBands: xRangeRoundBands
-				};
-
-				return (0, _reactD3Core.scale)(newXScale);
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				this.state = {
-					xBrushScaleSet: this._mkXScale(nextProps)
-				};
-			}
-		}, {
-			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {
-				this._updateBrush();
-			}
-		}, {
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				this._updateBrush();
-			}
-		}, {
-			key: '_updateBrush',
-			value: function _updateBrush() {
-				var _this2 = this;
-
-				var _state = this.state;
-				var xBrushScaleSet = _state.xBrushScaleSet;
-				var yBrushScaleSet = _state.yBrushScaleSet;
-				var _props = // callback method to which brush will pass the axis and new xDomain values on brush
-				// user defined brush style or else use default
-				this.props;
-				var height = _props.height;
-				var margins = _props.margins;
-				var brushExtent = _props.brushExtent;
-				var // used to set default brush drag area hightlighted
-				keepBrushOn = _props.keepBrushOn;
-				var // if true the brush will be visible after mouse release and user can move it left/right. If not after mouse release it will disappear
-				onBrushDomainChange = _props.onBrushDomainChange;
-				var brushStyle = _props.brushStyle;
-
-				// create d3 svg bursh with xDaomin values
-
-				var brush = d3.svg.brush().x(xBrushScaleSet);
-
-				// if user wants to keep brush area selected
-				if (brushExtent) brush = brush.extent(brushExtent);
-
-				brush = brush.on("brushend", function () {
-					var newDomain = brush.empty() ? xBrushScaleSet.domain() : brush.extent();
-					if (newDomain.length) {
-						onBrushDomainChange("x", newDomain);
-						if (!keepBrushOn) d3.select(_reactDom2.default.findDOMNode(_this2.refs.brushRect)).call(brush.clear());
-					}
-				});
-
-				var brushDom = d3.select(_reactDom2.default.findDOMNode(this.refs.brushRect)).call(brush).selectAll('rect').attr("y", -4).attr("height", height - margins.bottom - margins.top + 3);
-
-				// apply user defined brush style if provided
-				if (brushStyle) {
-					for (var key in brushStyle) {
-						brushDom.style(key, brushStyle[key]);
-					}
-				} else {
-					brushDom.style('fill', '#DDD').style('fill-opacity', .75).style('shape-rendering', 'crispEdges');
-				}
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement('g', { ref: 'brushRect', className: 'react-d3-basic__brush__rect' });
-			}
-		}]);
-
-		return Brush;
-	}(_react.Component);
-
-	Brush.defaultProps = _commonProps2.default;
-	exports.default = Brush;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 67 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _straightLine = __webpack_require__(68);
-
-	var _straightLine2 = _interopRequireDefault(_straightLine);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(4);
-	var Component = __webpack_require__(4).Component;
-	var Chart = __webpack_require__(61).Chart;
-	var Xgrid = __webpack_require__(5).Xgrid;
-	var Ygrid = __webpack_require__(5).Ygrid;
-	var Xaxis = __webpack_require__(5).Xaxis;
-	var Yaxis = __webpack_require__(5).Yaxis;
-
-	/*
-		Renders blank chart.
-		User can provide any text to be diplayed on blank chart.
-	*/
-
-	var BlankChart = function (_Component) {
-		_inherits(BlankChart, _Component);
-
-		function BlankChart(props) {
-			_classCallCheck(this, BlankChart);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(BlankChart).call(this, props));
-		}
-
-		_createClass(BlankChart, [{
-			key: 'renderNoDataTitle',
-			value: function renderNoDataTitle(x, y, textValue) {
-				return React.createElement(
-					'g',
-					null,
-					React.createElement(
-						'text',
-						{ className: 'chartNoData', x: x, y: y },
-						textValue
-					)
-				);
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _props = // do not display Y ticks for blank chart
-				this.props;
-				var width = _props.width;
-				var height = _props.height;
-				var margins = _props.margins;
-				var showXGrid = _props.showXGrid;
-				var showYGrid = _props.showYGrid;
-				var xDomain = _props.xDomain;
-				var noDataTitleText = _props.noDataTitleText;
-				var yTicks = _props.yTicks;
-
-
-				var xgrid, ygrid, textXMargin, textYMargin;
-
-				if (showXGrid) xgrid = React.createElement(Xgrid, this.props);
-				if (showYGrid) ygrid = React.createElement(Ygrid, this.props);
-				textXMargin = width / 2 - margins.right;
-				textYMargin = height / 2 - margins.bottom;
-
-				return React.createElement(
-					Chart,
-					_extends({ width: width, height: height }, this.props),
-					React.createElement(_straightLine2.default, _extends({ x1: 0 - 20, y1: 0, x2: width - margins.right, y2: 0 }, this.props)),
-					xgrid,
-					ygrid,
-					React.createElement(Xaxis, this.props),
-					React.createElement(Yaxis, this.props),
-					React.createElement(_straightLine2.default, _extends({ x1: 0 - 20, y1: height - margins.top - margins.bottom, x2: width - 100, y2: height - margins.top - margins.bottom }, this.props)),
-					noDataTitleText ? this.renderNoDataTitle(textXMargin, textYMargin, noDataTitleText) : null
-				);
-			}
-		}]);
-
-		return BlankChart;
-	}(Component);
-
-	BlankChart.defaultProps = {
-		showXGrid: true,
-		showYGrid: false,
-		xDomain: [0, 10], // its always good to pass xDomain values for x-axis in case if ther is no data the scale will still have valid values or else it will be default.
-		yDomain: [0],
-		yTicks: [0],
-		noDataTitleText: ""
-	};
-	exports.default = BlankChart;
-
-/***/ },
-/* 68 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(d3) {"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(58);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	/*
-		Renders straightline with given x and y coordinates.
-	*/
-
-	var StraightLine = function (_Component) {
-		_inherits(StraightLine, _Component);
-
-		function StraightLine(props) {
-			_classCallCheck(this, StraightLine);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(StraightLine).call(this, props));
-		}
-
-		_createClass(StraightLine, [{
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				this.getLine();
-			}
-		}, {
-			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {
-				// line needs to be updated upon window re-sizing
-				if (this.line) this.line.attr("width", this.props.width - this.props.margins.left - this.props.margins.right);
-			}
-		}, {
-			key: 'getLine',
-			value: function getLine() {
-				var _props = this.props;
-				var x1 = _props.x1;
-				var x2 = _props.x2;
-				var y1 = _props.y1;
-				var y2 = _props.y2;
-				var width = _props.width;
-				var height = _props.height;
-
-
-				this.line = d3.select(_reactDom2.default.findDOMNode(this.refs.StLine)).append("line").attr("x1", x1).attr("y1", y1).attr("x2", x2).attr("y2", y2);
-
-				return this.line;
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'g',
-					{ ref: 'StLine', className: 'straight-line' },
-					' '
-				);
-			}
-		}]);
-
-		return StraightLine;
-	}(_react.Component);
-
-	StraightLine.defaultProps = {
-		showXGrid: true,
-		showYGrid: false
-	};
-	exports.default = StraightLine;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 69 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d3Shape = __webpack_require__(70);
+	var _d3Shape = __webpack_require__(62);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _commonProps = __webpack_require__(64);
+	var _commonProps = __webpack_require__(47);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _series = __webpack_require__(62);
+	var _series = __webpack_require__(1);
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _classCallCheck(instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	}
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	function _possibleConstructorReturn(self, call) {
+	  if (!self) {
+	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
 
 	var Line = function (_Component) {
 	  _inherits(Line, _Component);
@@ -16863,23 +16005,18 @@ var ReactD3Shape =
 	    value: function _mkLine(dom) {
 	      var lineClassName = this.props.lineClassName;
 
-
 	      var dataset = (0, _series.series)(this.props);
 	      var that = this;
 
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        dataset.map(function (line, i) {
-	          return _react2.default.createElement('path', {
-	            stroke: line.color,
-	            fill: 'none',
-	            className: lineClassName + ' line',
-	            d: that._setAxes(line.data),
-	            style: line.style,
-	            key: i });
-	        })
-	      );
+	      return _react2.default.createElement('g', null, dataset.map(function (line, i) {
+	        return _react2.default.createElement('path', {
+	          stroke: line.color,
+	          fill: 'none',
+	          className: lineClassName + ' line',
+	          d: that._setAxes(line.data),
+	          style: line.style,
+	          key: i });
+	      }));
 	    }
 	  }, {
 	    key: '_setAxes',
@@ -16887,7 +16024,6 @@ var ReactD3Shape =
 	      var _props = this.props;
 	      var xScaleSet = _props.xScaleSet;
 	      var yScaleSet = _props.yScaleSet;
-
 
 	      var line = _d3Shape2.default.line().x(function (d) {
 	        return xScaleSet(d.x);
@@ -16902,11 +16038,7 @@ var ReactD3Shape =
 	    value: function render() {
 	      var line = this._mkLine();
 
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        line
-	      );
+	      return _react2.default.createElement('g', null, line);
 	    }
 	  }]);
 
@@ -16920,11 +16052,11 @@ var ReactD3Shape =
 	exports.default = Line;
 
 /***/ },
-/* 70 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(71)) :
+	   true ? factory(exports, __webpack_require__(63)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-path'], factory) :
 	  (factory((global.d3_shape = {}),global.d3_path));
 	}(this, function (exports,d3Path) { 'use strict';
@@ -18672,7 +17804,7 @@ var ReactD3Shape =
 	}));
 
 /***/ },
-/* 71 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -18832,1644 +17964,7 @@ var ReactD3Shape =
 	}));
 
 /***/ },
-/* 72 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d3Shape = __webpack_require__(70);
-
-	var _d3Shape2 = _interopRequireDefault(_d3Shape);
-
-	var _commonProps = __webpack_require__(64);
-
-	var _commonProps2 = _interopRequireDefault(_commonProps);
-
-	var _series = __webpack_require__(62);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Area = function (_Component) {
-	  _inherits(Area, _Component);
-
-	  function Area(props) {
-	    _classCallCheck(this, Area);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Area).call(this, props));
-	  }
-
-	  _createClass(Area, [{
-	    key: '_mkArea',
-	    value: function _mkArea() {
-	      var _props = this.props;
-	      var areaClassName = _props.areaClassName;
-	      var areaOpacity = _props.areaOpacity;
-
-
-	      var dataset = (0, _series.series)(this.props);
-	      var that = this;
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        dataset.map(function (area, i) {
-	          return _react2.default.createElement('path', {
-	            className: areaClassName + ' area',
-	            fill: area.color,
-	            d: that._setAxes(area.data),
-	            style: area.style,
-	            key: i
-	          });
-	        })
-	      );
-	    }
-	  }, {
-	    key: '_setAxes',
-	    value: function _setAxes(data) {
-	      var _props2 = this.props;
-	      var height = _props2.height;
-	      var margins = _props2.margins;
-	      var xScaleSet = _props2.xScaleSet;
-	      var yScaleSet = _props2.yScaleSet;
-
-
-	      var area = _d3Shape2.default.area().x(function (d) {
-	        return xScaleSet(d.x);
-	      }).y0(function (d) {
-	        var domain = yScaleSet.domain();
-
-	        if (domain[0] * domain[1] < 0) {
-	          return yScaleSet(0);
-	        } else if (domain[0] * domain[1] >= 0 && domain[0] >= 0) {
-	          return yScaleSet.range()[0];
-	        } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
-	          return yScaleSet.range()[1];
-	        }
-	      }).y1(function (d) {
-	        return yScaleSet(d.y);
-	      });
-
-	      return area.call(this, data);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var area = this._mkArea();
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        area
-	      );
-	    }
-	  }]);
-
-	  return Area;
-	}(_react.Component);
-
-	Area.defaultProps = _extends({
-	  areaClassName: 'react-d3-basic__area'
-	}, _commonProps2.default);
-	exports.default = Area;
-
-/***/ },
-/* 73 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(d3) {"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d3Shape = __webpack_require__(70);
-
-	var _d3Shape2 = _interopRequireDefault(_d3Shape);
-
-	var _commonProps = __webpack_require__(64);
-
-	var _commonProps2 = _interopRequireDefault(_commonProps);
-
-	var _series = __webpack_require__(62);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var AreaStack = function (_Component) {
-	  _inherits(AreaStack, _Component);
-
-	  function AreaStack(props) {
-	    _classCallCheck(this, AreaStack);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AreaStack).call(this, props));
-	  }
-
-	  _createClass(AreaStack, [{
-	    key: '_mkStack',
-	    value: function _mkStack() {
-	      var areaClassName = this.props.areaClassName;
-
-
-	      var dataset = (0, _series.series)(this.props);
-
-	      var _setStack = this._setStack();
-	      var _setAxes = this._setAxes();
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        _setStack(dataset).map(function (area) {
-	          return _react2.default.createElement('path', {
-	            className: areaClassName + ' area',
-	            fill: area.color,
-	            d: _setAxes(area.data),
-	            style: area.style
-	          });
-	        })
-	      );
-	    }
-	  }, {
-	    key: '_setStack',
-	    value: function _setStack() {
-	      var chartSeries = this.props.chartSeries;
-
-
-	      var buildOut = function buildOut(len) {
-	        // baseline for positive and negative bars respectively.
-	        var currentXOffsets = [];
-	        var currentXIndex = 0;
-	        return function (d, y0, y) {
-
-	          if (currentXIndex++ % len === 0) {
-	            currentXOffsets = [0, 0];
-	          }
-
-	          if (y >= 0) {
-	            d.y0 = currentXOffsets[1];
-	            d.y = y;
-	            currentXOffsets[1] += y;
-	          } else {
-	            d.y0 = currentXOffsets[0] + y;
-	            d.y = -y;
-	            currentXOffsets[0] += y;
-	          }
-	        };
-	      };
-	      return d3.layout.stack().values(function (d) {
-	        return d.data;
-	      }).out(buildOut(chartSeries.length));
-	    }
-	  }, {
-	    key: '_setAxes',
-	    value: function _setAxes() {
-	      var _props = this.props;
-	      var xScaleSet = _props.xScaleSet;
-	      var yScaleSet = _props.yScaleSet;
-
-
-	      return _d3Shape2.default.area().x(function (d) {
-	        return xScaleSet(d.x);
-	      }).y0(function (d) {
-	        return yScaleSet(d.y0);
-	      }).y1(function (d) {
-	        return yScaleSet(d.y0 + d.y);
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var area = this._mkStack();
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        area
-	      );
-	    }
-	  }]);
-
-	  return AreaStack;
-	}(_react.Component);
-
-	AreaStack.defaultProps = _extends({
-	  areaClass: 'react-d3-basics__area_stack',
-	  areaClassName: 'react-d3-basic__area_stack'
-	}, _commonProps2.default);
-	exports.default = AreaStack;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 74 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _series = __webpack_require__(62);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Bar = function (_Component) {
-	  _inherits(Bar, _Component);
-
-	  function Bar(props) {
-	    _classCallCheck(this, Bar);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Bar).call(this, props));
-	  }
-
-	  _createClass(Bar, [{
-	    key: 'triggerOver',
-	    value: function triggerOver(data, e) {
-	      this.props.onMouseOver(e, data);
-	    }
-	  }, {
-	    key: 'triggerOut',
-	    value: function triggerOut(data, e) {
-	      this.props.onMouseOut(e, data);
-	    }
-	  }, {
-	    key: 'triggerClick',
-	    value: function triggerClick(data, e) {
-	      this.props.onClick(e, data);
-	    }
-	  }, {
-	    key: '_mkBar',
-	    value: function _mkBar() {
-	      var _this2 = this;
-
-	      var _props = this.props;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var barClassName = _props.barClassName;
-	      var xScaleSet = _props.xScaleSet;
-	      var yScaleSet = _props.yScaleSet;
-
-
-	      var that = this;
-	      var dataset = (0, _series.series)(this.props)[0];
-	      var domain = yScaleSet.domain();
-	      var zeroBase;
-
-	      if (domain[0] * domain[1] < 0) {
-	        zeroBase = yScaleSet(0);
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] >= 0) {
-	        zeroBase = yScaleSet.range()[0];
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
-	        zeroBase = yScaleSet.range()[1];
-	      }
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        dataset.data.map(function (bar, i) {
-	          return _react2.default.createElement('rect', {
-	            className: barClassName + ' bar',
-	            x: xScaleSet(bar.x) || xScaleSet(bar.x) === 0 ? xScaleSet(bar.x) : -10000,
-	            y: bar.y < 0 ? zeroBase : yScaleSet(bar.y),
-	            width: xScaleSet.bandwidth(),
-	            height: bar.y < domain[0] ? 0 : Math.abs(zeroBase - yScaleSet(bar.y)),
-	            fill: bar._style.color ? bar._style.color : dataset.color,
-	            style: Object.assign({}, dataset.style, bar._style),
-	            onMouseOut: that.triggerOut.bind(_this2, bar),
-	            onMouseOver: that.triggerOver.bind(_this2, bar),
-	            onClick: that.triggerClick.bind(_this2, bar),
-	            key: i
-	          });
-	        })
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var bar = this._mkBar();
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        bar
-	      );
-	    }
-	  }]);
-
-	  return Bar;
-	}(_react.Component);
-
-	Bar.defaultProps = {
-	  onMouseOver: function onMouseOver(d) {},
-	  onMouseOut: function onMouseOut(d) {},
-	  onClick: function onClick(d) {},
-	  barClassName: 'react-d3-basic__bar'
-	};
-	exports.default = Bar;
-
-/***/ },
-/* 75 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _series = __webpack_require__(62);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BarHorizontal = function (_Component) {
-	  _inherits(BarHorizontal, _Component);
-
-	  function BarHorizontal(props) {
-	    _classCallCheck(this, BarHorizontal);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarHorizontal).call(this, props));
-	  }
-
-	  _createClass(BarHorizontal, [{
-	    key: 'triggerOver',
-	    value: function triggerOver(data, e) {
-	      this.props.onMouseOver(e, data);
-	    }
-	  }, {
-	    key: 'triggerOut',
-	    value: function triggerOut(data, e) {
-	      this.props.onMouseOut(e, data);
-	    }
-	  }, {
-	    key: '_mkBar',
-	    value: function _mkBar(dom) {
-	      var _this2 = this;
-
-	      var _props = this.props;
-	      var height = _props.height;
-	      var margins = _props.margins;
-	      var barClassName = _props.barClassName;
-	      var xScaleSet = _props.xScaleSet;
-	      var yScaleSet = _props.yScaleSet;
-
-
-	      var that = this;
-	      var dataset = (0, _series.series)(this.props, true)[0];
-	      var domain = xScaleSet.domain();
-	      var zeroBase;
-
-	      if (domain[0] * domain[1] < 0) {
-	        zeroBase = xScaleSet(0);
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] >= 0) {
-	        zeroBase = xScaleSet.range()[0];
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
-	        zeroBase = xScaleSet.range()[1];
-	      }
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        dataset.data.map(function (bar, i) {
-	          return _react2.default.createElement('rect', {
-	            className: barClassName + ' bar',
-	            y: yScaleSet(bar.y) || yScaleSet(bar.y) === 0 ? yScaleSet(bar.y) : -10000,
-	            x: bar.x > 0 ? zeroBase : zeroBase - Math.abs(zeroBase - xScaleSet(bar.x)),
-	            height: yScaleSet.bandwidth(),
-	            width: bar.x < domain[0] ? 0 : Math.abs(zeroBase - xScaleSet(bar.x)),
-	            fill: bar._style.color ? bar._style.color : dataset.color,
-	            style: Object.assign({}, dataset.style, bar._style),
-	            onMouseOut: that.triggerOut.bind(_this2, bar),
-	            onMouseOver: that.triggerOver.bind(_this2, bar),
-	            key: i
-	          });
-	        })
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var bar = this._mkBar();
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        bar
-	      );
-	    }
-	  }]);
-
-	  return BarHorizontal;
-	}(_react.Component);
-
-	BarHorizontal.defaultProps = {
-	  onMouseOver: function onMouseOver(d) {},
-	  onMouseOut: function onMouseOut(d) {},
-	  barClassName: 'react-d3-basic__bar_horizontal'
-	};
-	exports.default = BarHorizontal;
-
-/***/ },
-/* 76 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d3Scale = __webpack_require__(48);
-
-	var _d3Scale2 = _interopRequireDefault(_d3Scale);
-
-	var _series = __webpack_require__(62);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BarGroup = function (_Component) {
-	  _inherits(BarGroup, _Component);
-
-	  function BarGroup(props) {
-	    _classCallCheck(this, BarGroup);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarGroup).call(this, props));
-	  }
-
-	  _createClass(BarGroup, [{
-	    key: 'triggerOver',
-	    value: function triggerOver(data, e) {
-	      this.props.onMouseOver(e, data);
-	    }
-	  }, {
-	    key: 'triggerOut',
-	    value: function triggerOut(data, e) {
-	      this.props.onMouseOut(e, data);
-	    }
-	  }, {
-	    key: '_mkBarGroup',
-	    value: function _mkBarGroup(dom) {
-	      var _this2 = this;
-
-	      var _props = this.props;
-	      var height = _props.height;
-	      var margins = _props.margins;
-	      var barClassName = _props.barClassName;
-	      var xScaleSet = _props.xScaleSet;
-	      var yScaleSet = _props.yScaleSet;
-
-
-	      var that = this;
-	      var dataset = (0, _series.series)(this.props);
-	      var x1 = _d3Scale2.default.scaleBand();
-
-	      // mapping x1, inner x axis
-	      x1.domain(dataset.map(function (d) {
-	        return d.field;
-	      })).range([0, xScaleSet.bandwidth()]).padding(.1).round(true);
-
-	      var domain = yScaleSet.domain();
-	      var zeroBase;
-
-	      if (domain[0] * domain[1] < 0) {
-	        zeroBase = yScaleSet(0);
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] >= 0) {
-	        zeroBase = yScaleSet.range()[0];
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
-	        zeroBase = yScaleSet.range()[1];
-	      }
-
-	      return dataset.map(function (barGroup, i) {
-	        return _react2.default.createElement(
-	          'g',
-	          { className: 'bargroup', key: i },
-	          barGroup.data.map(function (bar, j) {
-	            return _react2.default.createElement('rect', {
-	              key: j,
-	              className: barClassName + ' bar',
-	              width: x1.bandwidth(),
-	              x: xScaleSet(bar.x) || xScaleSet(bar.x) === 0 ? xScaleSet(bar.x) + x1.bandwidth() * i : -10000,
-	              y: bar.y < 0 ? zeroBase : yScaleSet(bar.y),
-	              height: bar.y < domain[0] ? 0 : Math.abs(zeroBase - yScaleSet(bar.y)),
-	              fill: barGroup.color,
-	              onMouseOut: that.triggerOut.bind(_this2, bar),
-	              onMouseOver: that.triggerOver.bind(_this2, bar),
-	              style: barGroup.style
-	            });
-	          })
-	        );
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var bar = this._mkBarGroup();
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        bar
-	      );
-	    }
-	  }]);
-
-	  return BarGroup;
-	}(_react.Component);
-
-	BarGroup.defaultProps = {
-	  onMouseOver: function onMouseOver(d) {},
-	  onMouseOut: function onMouseOut(d) {},
-	  barClassName: 'react-d3-basic__bar_group'
-	};
-	exports.default = BarGroup;
-
-/***/ },
-/* 77 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d3Scale = __webpack_require__(48);
-
-	var _d3Scale2 = _interopRequireDefault(_d3Scale);
-
-	var _series = __webpack_require__(62);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BarGroupHorizontal = function (_Component) {
-	  _inherits(BarGroupHorizontal, _Component);
-
-	  function BarGroupHorizontal(props) {
-	    _classCallCheck(this, BarGroupHorizontal);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarGroupHorizontal).call(this, props));
-	  }
-
-	  _createClass(BarGroupHorizontal, [{
-	    key: 'triggerOver',
-	    value: function triggerOver(data, e) {
-	      this.props.onMouseOver(e, data);
-	    }
-	  }, {
-	    key: 'triggerOut',
-	    value: function triggerOut(data, e) {
-	      this.props.onMouseOut(e, data);
-	    }
-	  }, {
-	    key: '_mkBarGroup',
-	    value: function _mkBarGroup() {
-	      var _this2 = this;
-
-	      var _props = this.props;
-	      var height = _props.height;
-	      var margins = _props.margins;
-	      var barClassName = _props.barClassName;
-	      var xScaleSet = _props.xScaleSet;
-	      var yScaleSet = _props.yScaleSet;
-	      var onMouseOut = _props.onMouseOut;
-	      var onMouseOver = _props.onMouseOver;
-
-
-	      var that = this;
-	      var dataset = (0, _series.series)(this.props, true);
-	      var y1 = _d3Scale2.default.scaleBand();
-
-	      // mapping x1, inner x axis
-	      y1.domain(dataset.map(function (d) {
-	        return d.field;
-	      })).range([0, yScaleSet.bandwidth()]).padding(.1).round(true);
-
-	      var domain = xScaleSet.domain();
-	      var zeroBase;
-
-	      if (domain[0] * domain[1] < 0) {
-	        zeroBase = xScaleSet(0);
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] >= 0) {
-	        zeroBase = xScaleSet.range()[0];
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
-	        zeroBase = xScaleSet.range()[1];
-	      }
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        dataset.map(function (barGroup, i) {
-	          return _react2.default.createElement(
-	            'g',
-	            { className: 'bargroup', key: i },
-	            barGroup.data.map(function (bar, j) {
-	              return _react2.default.createElement('rect', {
-	                className: barClassName + ' bar',
-	                height: y1.bandwidth(),
-	                y: yScaleSet(bar.y) || yScaleSet(bar.y) === 0 ? yScaleSet(bar.y) + y1.bandwidth() * i : -10000,
-	                x: bar.x > 0 ? zeroBase : zeroBase - Math.abs(zeroBase - xScaleSet(bar.x)),
-	                width: bar.x < domain[0] ? 0 : Math.abs(zeroBase - xScaleSet(bar.x)),
-	                fill: barGroup.color,
-	                onMouseOut: that.triggerOut.bind(_this2, bar),
-	                onMouseOver: that.triggerOver.bind(_this2, bar),
-	                style: barGroup.style,
-	                key: j
-	              });
-	            })
-	          );
-	        })
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var bar = this._mkBarGroup();
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        bar
-	      );
-	    }
-	  }]);
-
-	  return BarGroupHorizontal;
-	}(_react.Component);
-
-	BarGroupHorizontal.defaultProps = {
-	  onMouseOver: function onMouseOver(d) {},
-	  onMouseOut: function onMouseOut(d) {},
-	  barClassName: 'react-d3-basic__bar_group_horizontal'
-	};
-	exports.default = BarGroupHorizontal;
-
-/***/ },
-/* 78 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d = __webpack_require__(2);
-
-	var _d2 = _interopRequireDefault(_d);
-
-	var _series = __webpack_require__(62);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BarStack = function (_Component) {
-	  _inherits(BarStack, _Component);
-
-	  function BarStack(props) {
-	    _classCallCheck(this, BarStack);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarStack).call(this, props));
-	  }
-
-	  _createClass(BarStack, [{
-	    key: 'triggerOver',
-	    value: function triggerOver(data, e) {
-	      this.props.onMouseOver(e, data);
-	    }
-	  }, {
-	    key: 'triggerOut',
-	    value: function triggerOut(data, e) {
-	      this.props.onMouseOut(e, data);
-	    }
-	  }, {
-	    key: 'triggerClick',
-	    value: function triggerClick(data, e) {
-	      this.props.onClick(e, data);
-	    }
-	  }, {
-	    key: '_mkBarStack',
-	    value: function _mkBarStack() {
-	      var _this2 = this;
-
-	      var _props = this.props;
-	      var height = _props.height;
-	      var margins = _props.margins;
-	      var barClassName = _props.barClassName;
-	      var xScaleSet = _props.xScaleSet;
-	      var yScaleSet = _props.yScaleSet;
-	      var barWidth = _props.barWidth;
-
-
-	      var that = this;
-	      var dataset = (0, _series.series)(this.props);
-	      var _setStack = this._setStack();
-
-	      var domain = yScaleSet.domain();
-	      var zeroBase;
-	      var barBandWidth;
-
-	      if (domain[0] * domain[1] < 0) {
-	        zeroBase = yScaleSet(0);
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] >= 0) {
-	        zeroBase = yScaleSet.range()[0];
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
-	        zeroBase = yScaleSet.range()[1];
-	      }
-
-	      // user defined barwidth
-	      if (barWidth) {
-	        barBandWidth = barWidth;
-	      } else {
-	        barBandWidth = xScaleSet.bandwidth();
-	      }
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        _setStack(dataset).map(function (barGroup, i) {
-	          return _react2.default.createElement(
-	            'g',
-	            {
-	              key: i,
-	              className: 'barGroup',
-	              fill: barGroup.color,
-	              style: barGroup.style },
-	            barGroup.data.map(function (bar, j) {
-	              return _react2.default.createElement('rect', {
-	                className: barClassName + ' bar',
-	                width: barBandWidth,
-	                x: xScaleSet(bar.x) || xScaleSet(bar.x) === 0 ? xScaleSet(bar.x) : -10000,
-	                y: yScaleSet(bar.y0 + bar.y),
-	                height: Math.abs(yScaleSet(bar.y) - yScaleSet(0)),
-	                onMouseOut: that.triggerOut.bind(_this2, bar),
-	                onMouseOver: that.triggerOver.bind(_this2, bar),
-	                onClick: that.triggerClick.bind(_this2, bar),
-	                key: j
-	              });
-	            })
-	          );
-	        })
-	      );
-	    }
-	  }, {
-	    key: '_setStack',
-	    value: function _setStack() {
-	      var chartSeries = this.props.chartSeries;
-
-
-	      var buildOut = function buildOut(len) {
-	        // baseline for positive and negative bars respectively.
-	        var currentXOffsets = [];
-	        var currentXIndex = 0;
-	        return function (d, y0, y) {
-
-	          if (currentXIndex++ % len === 0) {
-	            currentXOffsets = [0, 0];
-	          }
-
-	          if (y >= 0) {
-	            d.y0 = currentXOffsets[1];
-	            d.y = y;
-	            currentXOffsets[1] += y;
-	          } else {
-	            d.y0 = currentXOffsets[0] + y;
-	            d.y = -y;
-	            currentXOffsets[0] += y;
-	          }
-	        };
-	      };
-	      return _d2.default.layout.stack().values(function (d) {
-	        return d.data;
-	      }).out(buildOut(chartSeries.length));
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var bar = this._mkBarStack();
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        bar
-	      );
-	    }
-	  }]);
-
-	  return BarStack;
-	}(_react.Component);
-
-	BarStack.defaultProps = {
-	  onMouseOver: function onMouseOver(d) {},
-	  onMouseOut: function onMouseOut(d) {},
-	  onClick: function onClick(d) {},
-	  barClassName: 'react-d3-basic__bar_stack'
-	};
-	exports.default = BarStack;
-
-/***/ },
-/* 79 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d = __webpack_require__(2);
-
-	var _d2 = _interopRequireDefault(_d);
-
-	var _series = __webpack_require__(62);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BarStackHorizontal = function (_Component) {
-	  _inherits(BarStackHorizontal, _Component);
-
-	  function BarStackHorizontal(props) {
-	    _classCallCheck(this, BarStackHorizontal);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarStackHorizontal).call(this, props));
-	  }
-
-	  _createClass(BarStackHorizontal, [{
-	    key: 'triggerOver',
-	    value: function triggerOver(data, e) {
-	      this.props.onMouseOver(e, data);
-	    }
-	  }, {
-	    key: 'triggerOut',
-	    value: function triggerOut(data, e) {
-	      this.props.onMouseOut(e, data);
-	    }
-	  }, {
-	    key: '_mkBarStack',
-	    value: function _mkBarStack(dom) {
-	      var _this2 = this;
-
-	      var _props = this.props;
-	      var height = _props.height;
-	      var margins = _props.margins;
-	      var barClassName = _props.barClassName;
-	      var xScaleSet = _props.xScaleSet;
-	      var yScaleSet = _props.yScaleSet;
-	      var barWidth = _props.barWidth;
-
-
-	      var that = this;
-	      var dataset = (0, _series.series)(this.props, true);
-	      var _setStack = this._setStack();
-
-	      // make areas
-	      var chart = _d2.default.select(dom).attr("class", "g");
-
-	      var domain = xScaleSet.domain();
-	      var zeroBase;
-	      var barBandWidth;
-
-	      if (domain[0] * domain[1] < 0) {
-	        zeroBase = xScaleSet(0);
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] >= 0) {
-	        zeroBase = xScaleSet.range()[0];
-	      } else if (domain[0] * domain[1] >= 0 && domain[0] < 0) {
-	        zeroBase = xScaleSet.range()[1];
-	      }
-
-	      // user defined barwidth
-	      if (barWidth) {
-	        barBandWidth = barWidth;
-	      } else {
-	        barBandWidth = yScaleSet.bandwidth();
-	      }
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        _setStack(dataset).map(function (barGroup, i) {
-	          return _react2.default.createElement(
-	            'g',
-	            {
-	              className: 'barGroup',
-	              fill: barGroup.color,
-	              style: barGroup.style,
-	              key: i
-	            },
-	            barGroup.data.map(function (bar, j) {
-	              return _react2.default.createElement('rect', {
-	                className: barClassName + ' bar',
-	                height: barBandWidth,
-	                y: yScaleSet(bar.y) || yScaleSet(bar.y) === 0 ? yScaleSet(bar.y) : -10000,
-	                x: xScaleSet(bar.x0),
-	                width: Math.abs(xScaleSet(bar.x) - xScaleSet(0)),
-	                onMouseOut: that.triggerOut.bind(_this2, bar),
-	                onMouseOver: that.triggerOver.bind(_this2, bar),
-	                key: j
-	              });
-	            })
-	          );
-	        })
-	      );
-	    }
-	  }, {
-	    key: '_setStack',
-	    value: function _setStack() {
-	      var chartSeries = this.props.chartSeries;
-
-
-	      var buildOut = function buildOut(len) {
-	        // baseline for positive and negative bars respectively.
-	        var currentXOffsets = [];
-	        var currentXIndex = 0;
-	        return function (d, x0, x) {
-
-	          if (currentXIndex++ % len === 0) {
-	            currentXOffsets = [0, 0];
-	          }
-
-	          if (x >= 0) {
-	            d.x0 = currentXOffsets[1];
-	            d.x = x;
-	            currentXOffsets[1] += x;
-	          } else {
-	            d.x0 = currentXOffsets[0] + x;
-	            d.x = -x;
-	            currentXOffsets[0] += x;
-	          }
-	        };
-	      };
-	      return _d2.default.layout.stack().values(function (d) {
-	        return d.data;
-	      }).y(function (d) {
-	        return d.x;
-	      }).out(buildOut(chartSeries.length));
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var bar = this._mkBarStack();
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        bar
-	      );
-	    }
-	  }]);
-
-	  return BarStackHorizontal;
-	}(_react.Component);
-
-	BarStackHorizontal.defaultProps = {
-	  onMouseOver: function onMouseOver(d) {},
-	  onMouseOut: function onMouseOut(d) {},
-	  barClassName: 'react-d3-basic__bar_stack_horizontal'
-	};
-	exports.default = BarStackHorizontal;
-
-/***/ },
-/* 80 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d3Shape = __webpack_require__(70);
-
-	var _d3Shape2 = _interopRequireDefault(_d3Shape);
-
-	var _commonProps = __webpack_require__(64);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Pie = function (_Component) {
-	  _inherits(Pie, _Component);
-
-	  function Pie(props) {
-	    _classCallCheck(this, Pie);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Pie).call(this, props));
-	  }
-
-	  _createClass(Pie, [{
-	    key: 'triggerOver',
-	    value: function triggerOver(data, e) {
-	      this.props.onMouseOver(e, data);
-	    }
-	  }, {
-	    key: 'triggerOut',
-	    value: function triggerOut(data, e) {
-	      this.props.onMouseOut(e, data);
-	    }
-	  }, {
-	    key: 'mkSeries',
-	    value: function mkSeries() {
-	      var _props = this.props;
-	      var data = _props.data;
-	      var chartSeries = _props.chartSeries;
-	      var value = _props.value;
-	      var name = _props.name;
-	      var categoricalColors = _props.categoricalColors;
-
-
-	      var chartSeriesData = chartSeries.map(function (f, i) {
-
-	        // set a color if not set
-	        if (!f.color) f.color = categoricalColors(i);
-
-	        // set name if not set
-	        if (!f.name) f.name = f.field;
-
-	        var val;
-
-	        data.forEach(function (d) {
-	          if (name(d) === f.field) val = d;
-	        });
-
-	        return Object.assign(f, { value: value(val) });
-	      });
-
-	      return chartSeriesData;
-	    }
-	  }, {
-	    key: '_mkPie',
-	    value: function _mkPie() {
-	      var _this2 = this;
-
-	      var _props2 = this.props;
-	      var width = _props2.width;
-	      var height = _props2.height;
-	      var innerRadius = _props2.innerRadius;
-	      var outerRadius = _props2.outerRadius;
-	      var pieSort = _props2.pieSort;
-	      var value = _props2.value;
-	      var radius = _props2.radius;
-	      var pieTextShow = _props2.pieTextShow;
-
-
-	      var that = this;
-	      var radius = this.props.radius || Math.min(width - 100, height - 100) / 2;
-	      var outerRadius = outerRadius || radius - 10;
-	      var labelr = radius + 10;
-
-	      var chartSeriesData = this.mkSeries();
-
-	      var arc = _d3Shape2.default.arc().outerRadius(outerRadius).innerRadius(innerRadius);
-
-	      var arcOver = _d3Shape2.default.arc().outerRadius(outerRadius + 10).innerRadius(innerRadius);
-
-	      var pie = _d3Shape2.default.pie().sort(function (a, b) {
-	        return pieSort(a.value, b.value);
-	      }).value(function (d) {
-	        return d.value;
-	      });
-
-	      return _react2.default.createElement(
-	        'g',
-	        { className: 'arc' },
-	        pie(chartSeriesData).map(function (slice, i) {
-	          var textTransform = function textTransform(d) {
-	            var c = arc.centroid(d),
-	                x = c[0],
-	                y = c[1],
-
-	            // pythagorean theorem for hypotenuse
-	            h = Math.sqrt(x * x + y * y);
-
-	            return "translate(" + x / h * labelr + ',' + y / h * labelr + ")";
-	          };
-
-	          var textAnchor = function textAnchor(d) {
-	            return (d.endAngle + d.startAngle) / 2 > Math.PI ? "end" : "start";
-	          };
-
-	          return _react2.default.createElement(
-	            'g',
-	            { key: i },
-	            _react2.default.createElement('path', {
-	              d: arc(slice),
-	              style: _extends({ fill: slice.data.color, stroke: '#FFF' }, slice.data.style),
-	              onMouseOut: that.triggerOut.bind(_this2, slice),
-	              onMouseOver: that.triggerOver.bind(_this2, slice)
-	            }),
-	            pieTextShow ? _react2.default.createElement(
-	              'text',
-	              {
-	                transform: textTransform(slice),
-	                dy: '.35em',
-	                textAnchor: textAnchor(slice)
-	              },
-	              slice.data.name
-	            ) : null
-	          );
-	        })
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props3 = this.props;
-	      var width = _props3.width;
-	      var height = _props3.height;
-	      var margins = _props3.margins;
-
-
-	      var t = 'translate(' + (width - margins.left - margins.right) / 2 + ',  ' + (height - margins.top - margins.bottom) / 2 + ')';
-	      var pie = this._mkPie();
-
-	      return _react2.default.createElement(
-	        'g',
-	        { transform: t },
-	        pie
-	      );
-	    }
-	  }]);
-
-	  return Pie;
-	}(_react.Component);
-
-	Pie.defaultProps = _extends({
-	  onMouseOver: function onMouseOver(d) {},
-	  onMouseOut: function onMouseOut(d) {}
-	}, _commonProps.pieProps);
-	exports.default = Pie;
-
-/***/ },
-/* 81 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d3Shape = __webpack_require__(70);
-
-	var _d3Shape2 = _interopRequireDefault(_d3Shape);
-
-	var _series = __webpack_require__(62);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Scatter = function (_Component) {
-	  _inherits(Scatter, _Component);
-
-	  function Scatter(props) {
-	    _classCallCheck(this, Scatter);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Scatter).call(this, props));
-	  }
-
-	  _createClass(Scatter, [{
-	    key: '_mkScatter',
-	    value: function _mkScatter(dataset) {
-	      var _props = this.props;
-	      var scatterClassName = _props.scatterClassName;
-	      var defaultSymbol = _props.defaultSymbol;
-	      var defaultSymbolSize = _props.defaultSymbolSize;
-	      var brushSymbol = _props.brushSymbol;
-	      var xScaleSet = _props.xScaleSet;
-	      var yScaleSet = _props.yScaleSet;
-
-	      // for building symbols in brush, set to circle and size to 4
-
-	      if (brushSymbol) {
-	        symbol = 'circle';
-	        symbolSize = 4;
-	      }
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        dataset.map(function (dot) {
-	          var symbol = dot.symbol ? dot.symbol : defaultSymbol;
-	          var symbolSize = dot.symbolSize ? dot.symbolSize : defaultSymbolSize;
-
-	          return dot.data.map(function (d) {
-	            var symbolFunc = _d3Shape2.default.symbol().size(symbolSize * symbolSize).type(function () {
-	              console.log(symbol);
-
-	              if (symbol === 'circle') {
-	                return _d3Shape2.default.symbolCircle;
-	              } else if (symbol === 'cross') {
-	                return _d3Shape2.default.symbolCross;
-	              } else if (symbol === 'diamond') {
-	                return _d3Shape2.default.symbolDiamond;
-	              } else if (symbol === 'square') {
-	                return _d3Shape2.default.symbolSquare;
-	              } else if (symbol === 'star') {
-	                return _d3Shape2.default.symbolStar;
-	              } else if (symbol === 'triangle') {
-	                return _d3Shape2.default.symbolTriangle;
-	              } else if (symbol === 'wye') {
-	                return _d3Shape2.default.symbolWye;
-	              } else {
-	                console.error('Symbol is not support ' + symbol + '.');
-	              }
-	            });
-
-	            return _react2.default.createElement('path', {
-	              className: 'react-d3-basic__scatter__path',
-	              fill: d.color,
-	              transform: "translate(" + xScaleSet(d.x) + "," + yScaleSet(d.y) + ")",
-	              d: symbolFunc(),
-	              style: dot.style
-	            });
-	          });
-	        })
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var d = (0, _series.series)(this.props);
-	      var scatter = this._mkScatter(d);
-
-	      return _react2.default.createElement(
-	        'g',
-	        null,
-	        scatter
-	      );
-	    }
-	  }]);
-
-	  return Scatter;
-	}(_react.Component);
-
-	Scatter.defaultProps = {
-	  defaultSymbol: 'circle',
-	  defaultSymbolSize: 10,
-	  scatterClassName: 'react-d3-basic__scatter'
-	};
-	exports.default = Scatter;
-
-/***/ },
-/* 82 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _rectangle = __webpack_require__(83);
-
-	var _rectangle2 = _interopRequireDefault(_rectangle);
-
-	var _commonProps = __webpack_require__(64);
-
-	var _commonProps2 = _interopRequireDefault(_commonProps);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(4);
-	var Component = __webpack_require__(4).Component;
-	var PropTypes = __webpack_require__(4).PropTypes;
-	var Chart = __webpack_require__(61).Chart;
-	var Line = __webpack_require__(61).Line;
-	var Area = __webpack_require__(61).Area;
-	var Xgrid = __webpack_require__(5).Xgrid;
-	var Ygrid = __webpack_require__(5).Ygrid;
-	var Xaxis = __webpack_require__(5).Xaxis;
-	var Yaxis = __webpack_require__(5).Yaxis;
-	var Legend = __webpack_require__(5).Legend;
-	var Brush = __webpack_require__(61).Brush;
-	var BlankChart = __webpack_require__(61).BlankChart;
-
-	/**
-	    Component that renders multi-line + area chart if there is a data or else blank chart.
-	    Also provides brush (depending on isBrushable value), styling for chart (using svg Rectangle)
-	**/
-
-	var MultiLineBrushChart = function (_Component) {
-		_inherits(MultiLineBrushChart, _Component);
-
-		function MultiLineBrushChart(props) {
-			_classCallCheck(this, MultiLineBrushChart);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(MultiLineBrushChart).call(this, props));
-		}
-
-		_createClass(MultiLineBrushChart, [{
-			key: 'render',
-			value: function render() {
-				// if there is no data render Blank chart
-				if (!(this.props.data && this.props.data.length > 0)) return React.createElement(BlankChart, this.props);
-
-				var _props = // user can provide css classname to change chart's background, stroke, etc Note: this is implemented via svg rectangle element
-				this.props;
-				var width = _props.width;
-				var height = _props.height;
-				var margins = _props.margins;
-				var data = _props.data;
-				var chartSeries = _props.chartSeries;
-				var showXGrid = _props.showXGrid;
-				var showYGrid = _props.showYGrid;
-				var showLegend = _props.showLegend;
-				var categoricalColors = _props.categoricalColors;
-				var isBrushable = _props.isBrushable;
-				var chartClassName = _props.chartClassName;
-
-
-				var xgrid, ygrid;
-
-				/*
-	    Create a separate chartSeries object based on area value and pass it to respective chart components.
-	    Note: chartSeries is an array of objects.
-	    */
-				var chartSeriesType = chartSeries.map(function (d, i) {
-					var series = [];
-					if (d.area) {
-						series.push(d);
-						// area chart
-						return React.createElement(Area, { chartSeries: series, key: i });
-					} else {
-						series.push(d);
-						// simple line chart
-						return React.createElement(Line, { chartSeries: series, key: i });
-					}
-				});
-
-				if (showXGrid) xgrid = React.createElement(Xgrid, this.props);
-				if (showYGrid) ygrid = React.createElement(Ygrid, this.props);
-
-				return React.createElement(
-					'div',
-					null,
-					React.createElement(
-						Chart,
-						_extends({}, this.props, {
-							width: width,
-							height: height,
-							margins: margins,
-							data: data,
-							chartSeries: chartSeries }),
-						chartClassName ? React.createElement(_rectangle2.default, _extends({}, this.props, { styleClassName: chartClassName })) : null,
-						isBrushable ? React.createElement(Brush, this.props) : null,
-						chartSeriesType,
-						React.createElement(Xaxis, this.props),
-						React.createElement(Yaxis, this.props),
-						xgrid,
-						ygrid
-					),
-					showLegend ? React.createElement(Legend, _extends({}, this.props, {
-						width: width,
-						margins: margins,
-						chartSeries: chartSeries,
-						categoricalColors: categoricalColors })) : null
-				);
-			}
-		}]);
-
-		return MultiLineBrushChart;
-	}(Component);
-
-	MultiLineBrushChart.defaultProps = _extends({
-		showScatter: false,
-		isBrushable: false
-	}, _commonProps2.default);
-	MultiLineBrushChart.propTypes = {
-		width: PropTypes.number.isRequired,
-		height: PropTypes.number.isRequired,
-		margins: PropTypes.object.isRequired,
-		data: PropTypes.array.isRequired,
-		chartSeries: PropTypes.array.isRequired
-	};
-	exports.default = MultiLineBrushChart;
-
-/***/ },
-/* 83 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(d3) {"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(58);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	/*
-		Renders svg rectangle for given width and height
-	*/
-
-	var Rect = function (_Component) {
-		_inherits(Rect, _Component);
-
-		function Rect(props) {
-			_classCallCheck(this, Rect);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Rect).call(this, props));
-		}
-
-		_createClass(Rect, [{
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				this.drawRectangle();
-			}
-		}, {
-			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {
-				// rectangle width needs to be updated upon window re-sizing
-				if (this.rectangle) this.rectangle.attr("width", this.props.width - this.props.margins.left - this.props.margins.right);
-			}
-		}, {
-			key: 'drawRectangle',
-			value: function drawRectangle() {
-				var _props = this.props;
-				var width = _props.width;
-				var height = _props.height;
-				var margins = _props.margins;
-				var styleClassName = _props.styleClassName;
-
-
-				this.rectangle = d3.select(_reactDom2.default.findDOMNode(this.refs.Rect)).append("rect").attr("x", 0).attr("y", -5).attr("width", width - margins.left - margins.right).attr("height", height - margins.bottom - margins.top + 3).attr("class", styleClassName);
-
-				return this.rectangle;
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'g',
-					{ ref: 'Rect', className: 'rectangle' },
-					' '
-				);
-			}
-		}]);
-
-		return Rect;
-	}(_react.Component);
-
-	Rect.propTypes = {
-		height: _react.PropTypes.number.isRequired,
-		width: _react.PropTypes.number.isRequired,
-		margins: _react.PropTypes.object.isRequired,
-		styleClassName: _react.PropTypes.string.isRequired
-	};
-	exports.default = Rect;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 84 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20504,135 +17999,7 @@ var ReactD3Shape =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(70);
-
-	var _d3Shape2 = _interopRequireDefault(_d3Shape);
-
-	var _commonProps = __webpack_require__(47);
-
-	var _commonProps2 = _interopRequireDefault(_commonProps);
-
-	var _series = __webpack_require__(1);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-	  if (!(instance instanceof Constructor)) {
-	    throw new TypeError("Cannot call a class as a function");
-	  }
-	}
-
-	function _possibleConstructorReturn(self, call) {
-	  if (!self) {
-	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-	  if (typeof superClass !== "function" && superClass !== null) {
-	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var Line = function (_Component) {
-	  _inherits(Line, _Component);
-
-	  function Line(props) {
-	    _classCallCheck(this, Line);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Line).call(this, props));
-	  }
-
-	  _createClass(Line, [{
-	    key: '_mkLine',
-	    value: function _mkLine(dom) {
-	      var lineClassName = this.props.lineClassName;
-
-	      var dataset = (0, _series.series)(this.props);
-	      var that = this;
-
-	      return _react2.default.createElement('g', null, dataset.map(function (line, i) {
-	        return _react2.default.createElement('path', {
-	          stroke: line.color,
-	          fill: 'none',
-	          className: lineClassName + ' line',
-	          d: that._setAxes(line.data),
-	          style: line.style,
-	          key: i });
-	      }));
-	    }
-	  }, {
-	    key: '_setAxes',
-	    value: function _setAxes(data) {
-	      var _props = this.props;
-	      var xScaleSet = _props.xScaleSet;
-	      var yScaleSet = _props.yScaleSet;
-
-	      var line = _d3Shape2.default.line().x(function (d) {
-	        return xScaleSet(d.x);
-	      }).y(function (d) {
-	        return yScaleSet(d.y);
-	      });
-
-	      return line.call(this, data);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var line = this._mkLine();
-
-	      return _react2.default.createElement('g', null, line);
-	    }
-	  }]);
-
-	  return Line;
-	}(_react.Component);
-
-	Line.defaultProps = _extends({
-	  interpolate: null,
-	  lineClassName: 'react-d3-basic__line'
-	}, _commonProps2.default);
-	exports.default = Line;
-
-/***/ },
-/* 85 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) {
-	  for (var i = 1; i < arguments.length; i++) {
-	    var source = arguments[i];for (var key in source) {
-	      if (Object.prototype.hasOwnProperty.call(source, key)) {
-	        target[key] = source[key];
-	      }
-	    }
-	  }return target;
-	};
-
-	var _createClass = function () {
-	  function defineProperties(target, props) {
-	    for (var i = 0; i < props.length; i++) {
-	      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-	    }
-	  }return function (Constructor, protoProps, staticProps) {
-	    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	  };
-	}();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d3Shape = __webpack_require__(70);
+	var _d3Shape = __webpack_require__(62);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
@@ -20738,7 +18105,7 @@ var ReactD3Shape =
 	exports.default = Area;
 
 /***/ },
-/* 86 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(d3) {"use strict";
@@ -20773,7 +18140,7 @@ var ReactD3Shape =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(70);
+	var _d3Shape = __webpack_require__(62);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
@@ -20898,7 +18265,7 @@ var ReactD3Shape =
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 87 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21034,7 +18401,7 @@ var ReactD3Shape =
 	exports.default = Bar;
 
 /***/ },
-/* 88 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21162,7 +18529,7 @@ var ReactD3Shape =
 	exports.default = BarHorizontal;
 
 /***/ },
-/* 89 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21303,7 +18670,7 @@ var ReactD3Shape =
 	exports.default = BarGroup;
 
 /***/ },
-/* 90 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21446,7 +18813,7 @@ var ReactD3Shape =
 	exports.default = BarGroupHorizontal;
 
 /***/ },
-/* 91 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21630,7 +18997,7 @@ var ReactD3Shape =
 	exports.default = BarStack;
 
 /***/ },
-/* 92 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21813,7 +19180,7 @@ var ReactD3Shape =
 	exports.default = BarStackHorizontal;
 
 /***/ },
-/* 93 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21848,7 +19215,7 @@ var ReactD3Shape =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(70);
+	var _d3Shape = __webpack_require__(62);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
@@ -22010,7 +19377,7 @@ var ReactD3Shape =
 	exports.default = Pie;
 
 /***/ },
-/* 94 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22035,7 +19402,7 @@ var ReactD3Shape =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(70);
+	var _d3Shape = __webpack_require__(62);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
@@ -22148,7 +19515,7 @@ var ReactD3Shape =
 	exports.default = Scatter;
 
 /***/ },
-/* 95 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22179,7 +19546,33 @@ var ReactD3Shape =
 		};
 	}();
 
-	var _rectangle = __webpack_require__(96);
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactD3Core = __webpack_require__(5);
+
+	var _line = __webpack_require__(61);
+
+	var _line2 = _interopRequireDefault(_line);
+
+	var _chart = __webpack_require__(3);
+
+	var _chart2 = _interopRequireDefault(_chart);
+
+	var _blank_chart = __webpack_require__(59);
+
+	var _blank_chart2 = _interopRequireDefault(_blank_chart);
+
+	var _area = __webpack_require__(64);
+
+	var _area2 = _interopRequireDefault(_area);
+
+	var _brush = __webpack_require__(57);
+
+	var _brush2 = _interopRequireDefault(_brush);
+
+	var _rectangle = __webpack_require__(75);
 
 	var _rectangle2 = _interopRequireDefault(_rectangle);
 
@@ -22209,20 +19602,6 @@ var ReactD3Shape =
 		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
 
-	var React = __webpack_require__(4);
-	var Component = __webpack_require__(4).Component;
-	var PropTypes = __webpack_require__(4).PropTypes;
-	var Chart = __webpack_require__(61).Chart;
-	var Line = __webpack_require__(61).Line;
-	var Area = __webpack_require__(61).Area;
-	var Xgrid = __webpack_require__(5).Xgrid;
-	var Ygrid = __webpack_require__(5).Ygrid;
-	var Xaxis = __webpack_require__(5).Xaxis;
-	var Yaxis = __webpack_require__(5).Yaxis;
-	var Legend = __webpack_require__(5).Legend;
-	var Brush = __webpack_require__(61).Brush;
-	var BlankChart = __webpack_require__(61).BlankChart;
-
 	/**
 	    Component that renders multi-line + area chart if there is a data or else blank chart.
 	    Also provides brush (depending on isBrushable value), styling for chart (using svg Rectangle)
@@ -22241,7 +19620,7 @@ var ReactD3Shape =
 			key: 'render',
 			value: function render() {
 				// if there is no data render Blank chart
-				if (!(this.props.data && this.props.data.length > 0)) return React.createElement(BlankChart, this.props);
+				if (!(this.props.data && this.props.data.length > 0)) return _react2.default.createElement(_blank_chart2.default, this.props);
 
 				var _props = // user can provide css classname to change chart's background, stroke, etc Note: this is implemented via svg rectangle element
 				this.props;
@@ -22268,23 +19647,23 @@ var ReactD3Shape =
 					if (d.area) {
 						series.push(d);
 						// area chart
-						return React.createElement(Area, { chartSeries: series, key: i });
+						return _react2.default.createElement(_area2.default, { chartSeries: series, key: i });
 					} else {
 						series.push(d);
 						// simple line chart
-						return React.createElement(Line, { chartSeries: series, key: i });
+						return _react2.default.createElement(_line2.default, { chartSeries: series, key: i });
 					}
 				});
 
-				if (showXGrid) xgrid = React.createElement(Xgrid, this.props);
-				if (showYGrid) ygrid = React.createElement(Ygrid, this.props);
+				if (showXGrid) xgrid = _react2.default.createElement(_reactD3Core.Xgrid, this.props);
+				if (showYGrid) ygrid = _react2.default.createElement(_reactD3Core.Ygrid, this.props);
 
-				return React.createElement('div', null, React.createElement(Chart, _extends({}, this.props, {
+				return _react2.default.createElement('div', null, _react2.default.createElement(_chart2.default, _extends({}, this.props, {
 					width: width,
 					height: height,
 					margins: margins,
 					data: data,
-					chartSeries: chartSeries }), chartClassName ? React.createElement(_rectangle2.default, _extends({}, this.props, { styleClassName: chartClassName })) : null, isBrushable ? React.createElement(Brush, this.props) : null, chartSeriesType, React.createElement(Xaxis, this.props), React.createElement(Yaxis, this.props), xgrid, ygrid), showLegend ? React.createElement(Legend, _extends({}, this.props, {
+					chartSeries: chartSeries }), chartClassName ? _react2.default.createElement(_rectangle2.default, _extends({}, this.props, { styleClassName: chartClassName })) : null, isBrushable ? _react2.default.createElement(_brush2.default, this.props) : null, chartSeriesType, _react2.default.createElement(_reactD3Core.Xaxis, this.props), _react2.default.createElement(_reactD3Core.Yaxis, this.props), xgrid, ygrid), showLegend ? _react2.default.createElement(_reactD3Core.Legend, _extends({}, this.props, {
 					width: width,
 					margins: margins,
 					chartSeries: chartSeries,
@@ -22293,23 +19672,23 @@ var ReactD3Shape =
 		}]);
 
 		return MultiLineBrushChart;
-	}(Component);
+	}(_react.Component);
 
 	MultiLineBrushChart.defaultProps = _extends({
 		showScatter: false,
 		isBrushable: false
 	}, _commonProps2.default);
 	MultiLineBrushChart.propTypes = {
-		width: PropTypes.number.isRequired,
-		height: PropTypes.number.isRequired,
-		margins: PropTypes.object.isRequired,
-		data: PropTypes.array.isRequired,
-		chartSeries: PropTypes.array.isRequired
+		width: _react.PropTypes.number.isRequired,
+		height: _react.PropTypes.number.isRequired,
+		margins: _react.PropTypes.object.isRequired,
+		data: _react.PropTypes.array.isRequired,
+		chartSeries: _react.PropTypes.array.isRequired
 	};
 	exports.default = MultiLineBrushChart;
 
 /***/ },
-/* 96 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(d3) {"use strict";

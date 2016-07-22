@@ -1,18 +1,24 @@
 "use strict";
 
-var React = require('react');
-var Component = require('react').Component;
-var PropTypes = require( 'react').PropTypes;
-var Chart = require('../../src').Chart;
-var Line = require('../../src').Line;
-var Area = require('../../src').Area;
-var Xgrid = require('react-d3-core').Xgrid;
-var Ygrid = require('react-d3-core').Ygrid;
-var Xaxis = require('react-d3-core').Xaxis;
-var Yaxis = require('react-d3-core').Yaxis;
-var Legend = require('react-d3-core').Legend;
-var Brush = require('../../src').Brush;
-var BlankChart = require('../../src').BlankChart;
+import {
+	default as React,
+	PropTypes,
+	Component
+} from 'react';
+
+import {
+	Xgrid,
+	Ygrid,
+	Xaxis,
+	Yaxis,
+	Legend
+} from 'react-d3-core';
+
+import Line from './line';
+import Chart from '../chart';
+import BlankChart from './blank_chart';
+import Area from './area';
+import Brush from './brush';
 
 import Rect from '../utils/rectangle';
 
