@@ -1,13 +1,18 @@
 "use strict";
 
-var React = require('react');
-var Component = require('react').Component;
-var Chart = require('../../src').Chart;
-var Xgrid = require('react-d3-core').Xgrid;
-var Ygrid = require('react-d3-core').Ygrid;
-var Xaxis = require('react-d3-core').Xaxis;
-var Yaxis = require('react-d3-core').Yaxis;
+import {
+	default as React,
+	Component
+} from 'react';
 
+import {
+	Xgrid,
+	Ygrid,
+	Xaxis,
+	Yaxis
+} from 'react-d3-core';
+
+import Chart from '../chart';
 import StraightLine from '../utils/straightLine';
 
 /*
