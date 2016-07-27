@@ -48,8 +48,6 @@ export default class Scatter extends Component {
                 .size(symbolSize * symbolSize)
                 .type(
                   () => {
-                    console.log(symbol)
-
                     if(symbol === 'circle') {
                       return D3Shape.symbolCircle
                     }else if(symbol === 'cross') {
