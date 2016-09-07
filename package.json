@@ -2,6 +2,7 @@
   "name": "react-d3-shape",
   "version": "0.3.25",
   "description": "react shape component",
+  "repository": "https://github.com/react-d3/react-d3-shape",
   "main": "./lib/index.js",
   "directories": {
     "example": "example"
