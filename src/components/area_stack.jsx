@@ -35,13 +35,14 @@ export default class AreaStack extends Component {
     return (
       <g>
         {
-          _setStack(dataset).map((area) => {
+          _setStack(dataset).map((area, key) => {
             return (
               <path
                 className={`${areaClassName} area`}
                 fill={area.color}
                 d={_setAxes(area.data)}
                 style={area.style}
+                key={key}
                 />
             )
           })
