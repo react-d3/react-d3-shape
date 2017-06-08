@@ -48,6 +48,6 @@
     "d3": "^3.5.6",
     "d3-scale": "^0.6.4",
     "d3-shape": "^0.5.1",
-    "react-d3-core": "/Users/huy/Work/dev/react-d3-core"
+    "react-d3-core": "git+https://github.com/kty1965/react-d3-core.git",
   }
 }
