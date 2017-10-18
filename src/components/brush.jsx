@@ -2,9 +2,9 @@
 
 import {
 	default as React,
-	PropTypes,
-	Component,
+	Component
 } from 'react';
+import * as PropTypes from 'prop-types';
 
 import CommonProps from '../commonProps';
 

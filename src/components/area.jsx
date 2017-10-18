@@ -2,9 +2,10 @@
 
 import {
   default as React,
-  Component,
-  PropTypes,
+  Component
 } from 'react';
+
+import * as PropTypes from 'prop-types';
 
 import D3Shape from 'd3-shape'
 import CommonProps from '../commonProps';
